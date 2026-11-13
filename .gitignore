@@ -1,0 +1,76 @@
+# TaxClean ZA — Git Ignore Rules (Secrets, Keys, Build Artifacts & Local Ledgers)
+
+# Environment variables & secret configs (NEVER commit to repo)
+.env
+.env.*
+!.env.example
+
+# Private signing keys & admin license generator (NEVER commit to public repo)
+issue_license.py
+*.pfx
+*.p12
+*.cer
+*.key
+*.pem
+
+# Source maps (prevent reverse-engineering of proprietary parser rules)
+*.map
+
+# Email & Webhook credentials / local daemon state
+.gmail_app_password
+auto_fulfill_config.json
+pending_orders.json
+fulfilled_orders.json
+replied_support_ids.json
+sales_ledger.csv
+invoices/
+
+# Local user runtime data, SQLite databases & customer test statements
+*.db
+*.db-journal
+*.db-wal
+*.sqlite
+*.sqlite3
+taxclean_config.json
+crash_error.log
+*statement*.pdf
+*statement*.csv
+*statement*.xlsx
+samples/*.pdf
+samples/*.jpg
+samples/*.jpeg
+samples/*.png
+
+# Build, PyInstaller & MSIX packaging output
+__pycache__/
+*.py[cod]
+build/
+dist/
+msix_staging/
+*.msix
+*.exe
+
+# Customer email archive, local backups & Wrangler cache (added 2026-11-05 audit)
+support_inbox/
+backups/
+.wrangler/
+.dev.vars
+node_modules/
+*.zip
+*.dmg
+scratch_urls.json
+
+# Internal admin ops, private notes & local workspace config (never publish)
+.agents/
+TaxCleanAdmin.pyw
+auto_fulfill_daemon.py
+council_sync.py
+email_support_agent.py
+SHARED_3_PROJECT_COUNCIL_NOTES.md
+PROJECT_MEMORY_AND_NOTES.md
+LAUNCH_DIRECTORY_SUBMISSION_PACK.md
+tools/
+promo_video/
+social_media/
+*.mp4
+.github/

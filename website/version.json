@@ -1,0 +1,17 @@
+{
+  "latest_version": "2.7.0.0",
+  "release_date": "2026-10-28",
+  "min_supported_version": "2.0.0.0",
+  "download_url": "https://taxcleanza.com/download",
+  "portable_url": "https://taxcleanza.com/download/portable",
+  "mac_url": "https://taxcleanza.com/download/mac",
+  "installer_sha256": "2b6b4c954f50ccbd33a41390e75ce9a12cc08e9c9198abf7ed68d51b09fc12e2",
+  "changelog": [
+    "Obsidian Dark Mode high-contrast accounting cockpit",
+    "Local Browser & Desktop parsing with explicit opt-in AI OCR fallback",
+    "Real-time customizable columns and cent-zero mathematical balancing engine",
+    "Live SARS VAT201 working paper calculation and multi-statement batching"
+  ],
+  "headline": "TaxClean ZA v2.7 Pro: Local-First Accounting & Reconciliation Engine",
+  "mandatory": false
+}

@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Convert HSBC UK PDF Statements to Xero & Sage (Fix Trailing Minus Signs) | TaxClean</title>
+  <meta name="description" content="Convert HSBC UK business and Kinetic bank statement PDFs to Xero and Sage CSV. Fixes trailing minus signs, mid-statement fee summaries, and DD/MM/YYYY dates." />
+  <meta name="keywords" content="convert hsbc uk pdf statement to xero, hsbc bank statement to sage csv, hsbc trailing minus sign fix, hsbc kinetic pdf to excel" />
+  <meta name="robots" content="index, follow" />
+  <meta name="geo.region" content="GB-ENG" />
+  <meta name="geo.placename" content="London, United Kingdom" />
+  <link rel="canonical" href="https://taxcleanza.com/guides/convert-hsbc-uk-pdf-statement-to-xero-sage.html" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23061326'/%3E%3Ctext x='5' y='22' font-family='Inter,Arial,sans-serif' font-weight='800' font-size='15' fill='%23ffffff'%3ETC%3Ctspan fill='%2310b981'%3E.%3C/tspan%3E%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="help" type="text/plain" title="LLMs.txt AI Answer Engine Manifest" href="https://taxcleanza.com/llms.txt" />
+  <link rel="help" type="text/plain" title="LLMs-Full.txt Complete AI Citation Reference" href="https://taxcleanza.com/llms-full.txt" />
+
+  <!-- OpenGraph Metadata -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="TaxClean" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:url" content="https://taxcleanza.com/guides/convert-hsbc-uk-pdf-statement-to-xero-sage.html" />
+  <meta property="og:title" content="Convert HSBC UK PDF Statements to Xero & Sage (Fix Trailing Minus Signs) | TaxClean" />
+  <meta property="og:description" content="Convert HSBC UK business and Kinetic bank statement PDFs to Xero and Sage CSV. Fixes trailing minus signs, mid-statement fee summaries, and DD/MM/YYYY dates." />
+  <meta property="og:image" content="https://taxcleanza.com/og-banner.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Convert HSBC UK PDF Statements to Xero & Sage (Fix Trailing Minus Signs) | TaxClean" />
+  <meta name="twitter:description" content="Convert HSBC UK business and Kinetic bank statement PDFs to Xero and Sage CSV. Fixes trailing minus signs, mid-statement fee summaries, and DD/MM/YYYY dates." />
+  <meta name="twitter:image" content="https://taxcleanza.com/og-banner.png" />
+
+  <!-- AEO & JSON-LD Structured Data Schema -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://taxcleanza.com/guides/convert-hsbc-uk-pdf-statement-to-xero-sage.html#article",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://taxcleanza.com/#website",
+        "name": "TaxClean",
+        "url": "https://taxcleanza.com"
+      },
+      "headline": "How to Convert HSBC UK PDF Statements to Xero & Sage (Fix Trailing Minus Signs)",
+      "description": "Convert HSBC UK business and Kinetic bank statement PDFs to Xero and Sage CSV. Fixes trailing minus signs, mid-statement fee summaries, and DD/MM/YYYY dates.",
+      "image": "https://taxcleanza.com/og-banner.png",
+      "url": "https://taxcleanza.com/guides/convert-hsbc-uk-pdf-statement-to-xero-sage.html",
+      "inLanguage": "en-GB",
+      "datePublished": "2026-11-09T08:00:00+02:00",
+      "dateModified": "2026-11-10T06:40:27Z",
+      "author": {
+        "@type": "Person",
+        "name": "Nikhar Bechan",
+        "jobTitle": "Founder & Technical Lead",
+        "url": "https://taxcleanza.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://taxcleanza.com/#organization",
+        "name": "TaxClean Technologies",
+        "url": "https://taxcleanza.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://taxcleanza.com/og-banner.png"
+        }
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://taxcleanza.com/guides/convert-hsbc-uk-pdf-statement-to-xero-sage.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does TaxClean fix HSBC trailing minus signs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "TaxClean's engine detects accounting debit notations (such as 150.00- or (150.00)) and converts them into standardized signed decimal values (-150.00) recognized by Xero, Sage, and Excel."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does TaxClean support HSBC Kinetic mobile statements?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Both classic HSBC Business Banking PDF statements and modern HSBC Kinetic mobile app PDF statement downloads are fully supported."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is client data kept private under UK GDPR?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. All processing executes client-side inside your browser memory using WebAssembly. Client financial statements never leave your UK workstation or touch external cloud servers."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://taxcleanza.com/guides/convert-hsbc-uk-pdf-statement-to-xero-sage.html#breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://taxcleanza.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://taxcleanza.com/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "HSBC UK to Xero & Sage",
+          "item": "https://taxcleanza.com/guides/convert-hsbc-uk-pdf-statement-to-xero-sage.html"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <style>
+    :root {
+      --primary: #10b981;
+      --primary-dark: #059669;
+      --primary-light: #ecfdf5;
+      --primary-border: #a7f3d0;
+      --slate-950: #060c18;
+      --slate-900: #090d16;
+      --slate-800: #1e293b;
+      --slate-700: #334155;
+      --slate-600: #475569;
+      --slate-500: #64748b;
+      --slate-300: #cbd5e1;
+      --slate-200: #e2e8f0;
+      --slate-100: #f1f5f9;
+      --slate-50: #f8fafc;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #0f172a;
+      background: #f8fafc;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    nav {
+      background: var(--slate-900);
+      padding: 16px 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav .nav-wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav .brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 800;
+      font-size: 18px;
+    }
+    nav .brand span { color: var(--primary); }
+    nav .nav-cta {
+      background: var(--primary);
+      color: #061326;
+      font-weight: 700;
+      font-size: 13.5px;
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: background 0.15s ease;
+    }
+    nav .nav-cta:hover { background: #34d399; }
+
+    .breadcrumbs {
+      max-width: 960px;
+      margin: 24px auto 0 auto;
+      padding: 0 20px;
+      font-size: 13px;
+      color: var(--slate-500);
+    }
+    .breadcrumbs a { color: var(--slate-600); text-decoration: none; }
+    .breadcrumbs a:hover { color: var(--primary-dark); }
+    .breadcrumbs span { margin: 0 6px; }
+
+    .main-container {
+      max-width: 960px;
+      margin: 20px auto 60px auto;
+      padding: 0 20px;
+    }
+    .article-card {
+      background: #ffffff;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+    }
+    .guide-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-weight: 800;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 5px 14px;
+      border-radius: 9999px;
+      border: 1px solid var(--primary-border);
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-size: 32px;
+      font-weight: 900;
+      line-height: 1.25;
+      color: var(--slate-950);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .article-meta {
+      font-size: 13.5px;
+      color: var(--slate-500);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--slate-200);
+      margin-bottom: 28px;
+    }
+    .article-meta strong { color: var(--slate-700); }
+
+    /* Answer-First AEO Callout Box */
+    .aeo-direct-answer {
+      background: #f0fdf4;
+      border: 2px solid #86efac;
+      border-left: 6px solid var(--primary-dark);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-bottom: 36px;
+    }
+    .aeo-direct-answer .aeo-label {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #166534;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .aeo-direct-answer p {
+      font-size: 16px;
+      font-weight: 600;
+      color: #14532d;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Action CTA Box */
+    .cta-card {
+      background: linear-gradient(135deg, #090d16 0%, #1e293b 100%);
+      color: #ffffff;
+      border-radius: var(--radius-md);
+      padding: 28px;
+      margin: 36px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.25);
+    }
+    .cta-card h3 { font-size: 20px; font-weight: 800; color: #fff; margin: 0; }
+    .cta-card p { font-size: 14.5px; color: #cbd5e1; margin: 0; line-height: 1.6; }
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--primary);
+      color: #061326;
+      font-size: 15px;
+      font-weight: 800;
+      padding: 12px 24px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      align-self: flex-start;
+      transition: all 0.15s ease;
+    }
+    .cta-btn:hover { background: #34d399; transform: translateY(-1px); }
+    .cta-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12.5px;
+      color: #94a3b8;
+    }
+    .cta-badge svg { fill: var(--primary); }
+
+    /* Body Typography */
+    h2 {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--slate-900);
+      margin-top: 40px;
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+    h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--slate-800);
+      margin-top: 24px;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 15.5px;
+      color: var(--slate-700);
+      margin-bottom: 16px;
+    }
+    ul, ol {
+      padding-left: 22px;
+      margin-bottom: 20px;
+    }
+    li {
+      font-size: 15px;
+      color: var(--slate-700);
+      margin-bottom: 8px;
+    }
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 13.5px;
+      background: var(--slate-100);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #0f172a;
+      border: 1px solid var(--slate-200);
+    }
+    pre {
+      background: var(--slate-950);
+      color: #f1f5f9;
+      padding: 18px 20px;
+      border-radius: var(--radius-sm);
+      overflow-x: auto;
+      font-size: 13px;
+      line-height: 1.5;
+      margin-bottom: 24px;
+      border: 1px solid #1e293b;
+    }
+    pre code {
+      background: transparent;
+      padding: 0;
+      color: inherit;
+      border: none;
+    }
+
+    /* Table styling */
+    .table-container {
+      overflow-x: auto;
+      margin: 24px 0;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-sm);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      text-align: left;
+    }
+    th {
+      background: var(--slate-100);
+      padding: 12px 16px;
+      font-weight: 700;
+      color: var(--slate-800);
+      border-bottom: 1px solid var(--slate-200);
+    }
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--slate-200);
+      color: var(--slate-700);
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) { background: #fafafa; }
+
+    /* POPIA Notice Box */
+    .popia-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-left: 5px solid #2563eb;
+      border-radius: var(--radius-sm);
+      padding: 18px 20px;
+      margin: 32px 0;
+    }
+    .popia-box h4 {
+      color: #1e40af;
+      font-size: 14.5px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .popia-box p {
+      color: #1e3a8a;
+      font-size: 13.5px;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* FAQ Section */
+    .faq-item {
+      border-top: 1px solid var(--slate-200);
+      padding: 18px 0;
+    }
+    .faq-item:last-child { border-bottom: 1px solid var(--slate-200); }
+    .faq-question {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--slate-900);
+      margin-bottom: 8px;
+    }
+    .faq-answer {
+      font-size: 14.5px;
+      color: var(--slate-600);
+      margin: 0;
+    }
+
+    /* Related Guides Grid */
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .related-card {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .related-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .related-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--slate-900);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    .related-card p {
+      font-size: 13px;
+      color: var(--slate-500);
+      margin: 0;
+      line-height: 1.5;
+    }
+    .related-card span {
+      margin-top: 12px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--slate-950);
+      color: #94a3b8;
+      padding: 40px 20px;
+      font-size: 13px;
+      border-top: 1px solid #1e293b;
+    }
+    footer .footer-wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    footer .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    footer a { color: #cbd5e1; text-decoration: none; }
+    footer a:hover { color: var(--primary); }
+    footer .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    @media (max-width: 768px) {
+      .article-card { padding: 24px 20px; }
+      h1 { font-size: 24px; }
+      h2 { font-size: 19px; }
+      .cta-card { padding: 20px; }
+      .cta-btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-wrap">
+      <a href="/" class="brand">
+        TaxClean<span>.</span>
+      </a>
+      <a href="/?bank=hsbc&export=xero#app" class="nav-cta">Convert Statements Free &rarr;</a>
+    </div>
+  </nav>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumbs">
+    <a href="/">Home</a>
+    <span>&rsaquo;</span>
+    <a href="/guides/">Accounting Guides</a>
+    <span>&rsaquo;</span>
+    <span style="color:var(--slate-800); font-weight:600;">HSBC UK to Xero & Sage</span>
+  </div>
+
+  <!-- Main Article -->
+  <main class="main-container">
+    <article class="article-card">
+      <div class="guide-badge">United Kingdom • HSBC UK • Xero • Sage Business Cloud • HMRC MTD</div>
+      <h1>How to Convert HSBC UK PDF Statements to Xero & Sage (Fix Trailing Minus Signs)</h1>
+      <div class="article-meta">
+        <span>Published by <strong>Nikhar Bechan</strong> (Founder, TaxClean)</span>
+        <span>&bull;</span>
+        <span>Updated: <strong>November 2026</strong></span>
+        <span>&bull;</span>
+        <span>Target: <strong>UK Accounting, Bookkeeping &amp; HMRC MTD Compliance</strong></span>
+      </div>
+
+      <!-- AEO Answer-First Callout -->
+      <div class="aeo-direct-answer">
+        <div class="aeo-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+          Direct Answer / Quick Solution
+        </div>
+        <p>To convert HSBC UK PDF statements to Xero or Sage, normalize transactions into a 3-column CSV with DD/MM/YYYY dates, invert trailing minus signs into standard negative amounts, and exclude end-of-month interest calculation summaries.</p>
+      </div>
+
+      <!-- Interactive 1-Click CTA -->
+      <div class="cta-card">
+        <div>
+          <h3>Need to convert your statement right now?</h3>
+          <p>Don't waste hours untangling trailing minus signs and fee summaries in Excel. Drop your HSBC UK statement below to generate balanced, import-ready Xero, Sage Business Cloud, or Excel CSVs in 2 seconds.</p>
+        </div>
+        <a href="/?bank=hsbc&export=xero#app" class="cta-btn">
+          Convert HSBC UK Statement (Free) &rarr;
+        </a>
+        <div class="cta-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+          100% In-Browser RAM Processing &bull; Zero Server Uploads &bull; UK GDPR &amp; DPA 2018 Compliant
+        </div>
+      </div>
+
+      <!-- Detailed Technical Content -->
+      <div class="article-body">
+        
+<h2>Common HSBC UK PDF Statement Import Obstacles</h2>
+<p>HSBC UK Business Banking and HSBC Kinetic statements present unique layout characteristics that frequently disrupt direct imports into Xero, Sage Business Cloud, and QuickBooks Online:</p>
+
+<ul>
+  <li><strong>Trailing Minus Signs &amp; Accounting Parentheses:</strong> HSBC frequently formats debit transactions with trailing minus signs (e.g. <code>£1,250.00-</code>) or enclosed in brackets <code>(£1,250.00)</code>. When converted naively, spreadsheet applications treat these amounts as unparseable text strings, triggering mathematical balance validation errors during software import.</li>
+  <li><strong>HSBC Transaction Execution Codes:</strong> Statements display transaction codes such as <code>BP</code> (Bill Payment), <code>CR</code> (Credit), <code>DR</code> (Debit), <code>SO</code> (Standing Order), and <code>DD</code> (Direct Debit) in dedicated sub-columns. Standard tools misalign these codes, shifting payee names into the date or amount column.</li>
+  <li><strong>End-of-Month Fee &amp; Interest Blocks:</strong> HSBC statements often interleave quarterly maintenance fee schedules, borrowing rate notices, and overdraft summaries directly into the transaction ledger, throwing off closing balance reconciliations.</li>
+</ul>
+
+<h2>HMRC Making Tax Digital (MTD) VAT Alignment</h2>
+<p>Under HMRC Making Tax Digital (MTD) regulations, UK VAT-registered businesses must maintain an unbroken digital audit trail from digital source documents to the 9-box VAT return (VAT100). Manual copy-pasting of HSBC statement figures into spreadsheets breaches digital link requirements.</p>
+
+<p>TaxClean converts HSBC PDF statements into compliant 3-column CSV files (<code>Date [DD/MM/YYYY], Amount, Description</code>) that import directly into your accounting software's reconciliation screen with zero copy-pasting.</p>
+
+<h2>Step-by-Step Conversion Process</h2>
+<ol style="margin-left:20px; line-height:1.8;">
+  <li><strong>Upload HSBC Statement PDF:</strong> Drag and drop your monthly HSBC Business or Kinetic PDF statement into TaxClean.</li>
+  <li><strong>Automated Sign &amp; Description Normalization:</strong> Trailing minus signs are normalized to standard signed floats (e.g. <code>-1250.00</code>) and non-transactional fee notices are filtered out.</li>
+  <li><strong>Export Clean CSV for Xero or Sage:</strong> Download your balanced CSV formatted for direct import into Xero, Sage, FreeAgent, or Excel.</li>
+</ol>
+
+      </div>
+
+      <!-- Compliance Notice Box -->
+      <div class="popia-box" style="background:#f0f9ff;border-color:#bae6fd;border-left-color:#0284c7">
+        <h4 style="color:#0369a1">UK GDPR &amp; ICAEW / AAT Data Privacy Notice</h4>
+        <p style="color:#075985">Under the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018, transferring unencrypted client banking records to cloud PDF processors violates statutory client confidentiality obligations. TaxClean operates entirely within your local browser memory—client financial data never departs your UK workstation.</p>
+      </div>
+
+      <!-- Frequently Asked Questions -->
+      <section style="margin-top: 40px;">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+                    <div class="faq-item">
+            <div class="faq-question">How does TaxClean fix HSBC trailing minus signs?</div>
+            <div class="faq-answer">TaxClean's engine detects accounting debit notations (such as 150.00- or (150.00)) and converts them into standardized signed decimal values (-150.00) recognized by Xero, Sage, and Excel.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Does TaxClean support HSBC Kinetic mobile statements?</div>
+            <div class="faq-answer">Yes. Both classic HSBC Business Banking PDF statements and modern HSBC Kinetic mobile app PDF statement downloads are fully supported.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Is client data kept private under UK GDPR?</div>
+            <div class="faq-answer">Yes. All processing executes client-side inside your browser memory using WebAssembly. Client financial statements never leave your UK workstation or touch external cloud servers.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Guides Hub -->
+      <section style="margin-top: 48px; border-top: 1px solid var(--slate-200); padding-top: 32px;">
+        <h2>Related UK &amp; International Bank Statement Guides</h2>
+        <div class="related-grid">
+                    <a href="/guides/convert-barclays-pdf-statement-to-xero-freeagent.html" class="related-card">
+            <div>
+              <div style="font-size:11px;font-weight:700;color:var(--primary-dark);text-transform:uppercase;margin-bottom:4px">United Kingdom</div>
+              <h4>How to Convert Barclays PDF Bank Statements to Xero & FreeAgent (HMRC MTD Ready)</h4>
+              <p>Convert Barclays business and personal PDF bank statements into balanced Xero and FreeAgent CSVs. Solves disco...</p>
+            </div>
+            <span>Read Step-by-Step Fix &rarr;</span>
+          </a>
+          <a href="/guides/convert-chase-pdf-statement-to-quickbooks-online-iif.html" class="related-card">
+            <div>
+              <div style="font-size:11px;font-weight:700;color:var(--primary-dark);text-transform:uppercase;margin-bottom:4px">United States</div>
+              <h4>How to Convert JPMorgan Chase PDF Statements to QuickBooks Online & Desktop (.IIF)</h4>
+              <p>Convert JPMorgan Chase checking and commercial credit card PDF statements to QuickBooks Online (.csv) and Quic...</p>
+            </div>
+            <span>Read Step-by-Step Fix &rarr;</span>
+          </a>
+          <a href="/guides/convert-bank-of-america-pdf-statement-to-quickbooks-excel.html" class="related-card">
+            <div>
+              <div style="font-size:11px;font-weight:700;color:var(--primary-dark);text-transform:uppercase;margin-bottom:4px">United States • Bank of America • QuickBooks Online • Excel</div>
+              <h4>How to Convert Bank of America PDF Statements to QuickBooks Online & Excel</h4>
+              <p>Fix Bank of America PDF statement date errors and check table splits. Convert BofA checking & credit card PDFs...</p>
+            </div>
+            <span>Read Step-by-Step Fix &rarr;</span>
+          </a>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-wrap">
+      <div class="footer-top">
+        <div>
+          <strong style="color:#fff; font-size:16px;">TaxClean Global</strong> &bull; Local Browser Bank Statement Converter &bull; 100% On-Device Privacy
+        </div>
+        <div class="footer-links">
+          <a href="/">Home</a>
+          <a href="/guides/">All Guides</a>
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms &amp; EULA</a>
+          <a href="mailto:sales@taxcleanza.com">Contact Support</a>
+        </div>
+      </div>
+      <div style="border-top: 1px solid #1e293b; padding-top: 16px; font-size: 12px; color: #64748b;">
+        &copy; 2026 TaxClean Technologies. All trademarks (HSBC, Barclays, Xero, Sage, FreeAgent) belong to their respective owners.
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

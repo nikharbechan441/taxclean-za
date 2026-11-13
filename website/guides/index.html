@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bank Statement &amp; Accounting Troubleshooting Guides | TaxClean</title>
+  <meta name="description" content="Technical troubleshooting guides, format specifications, and error fixes for South African, US, UK, and Australian bank statement imports into Sage Pastel, Xero, QuickBooks, MYOB, and FreeAgent." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://taxcleanza.com/guides/" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23061326'/%3E%3Ctext x='5' y='22' font-family='Inter,Arial,sans-serif' font-weight='800' font-size='15' fill='%23ffffff'%3ETC%3Ctspan fill='%2310b981'%3E.%3C/tspan%3E%3C/text%3E%3C/svg%3E" />
+  
+  <!-- OpenGraph Metadata -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TaxClean" />
+  <meta property="og:url" content="https://taxcleanza.com/guides/" />
+  <meta property="og:title" content="Bank Statement &amp; Accounting Troubleshooting Guides | TaxClean" />
+  <meta property="og:description" content="Technical troubleshooting guides, format specifications, and error fixes for South African, US, UK, and Australian bank statement imports into Sage Pastel, Xero, QuickBooks, MYOB, and FreeAgent." />
+  <meta property="og:image" content="https://taxcleanza.com/og-banner.png" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Bank Statement &amp; Accounting Troubleshooting Guides | TaxClean" />
+  <meta name="twitter:description" content="Technical troubleshooting guides, format specifications, and error fixes for South African, US, UK, and Australian bank statement imports into Sage Pastel, Xero, QuickBooks, MYOB, and FreeAgent." />
+  <meta name="twitter:image" content="https://taxcleanza.com/og-banner.png" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://taxcleanza.com/guides/#webpage",
+      "name": "Global Bank Statement & Accounting Troubleshooting Guides | TaxClean",
+      "description": "Technical troubleshooting guides, exact CSV column layouts, and error fixes for South Africa, United States, United Kingdom, and Australian banks and accounting software.",
+      "url": "https://taxcleanza.com/guides/",
+      "inLanguage": [
+        "en-ZA",
+        "en-US",
+        "en-GB",
+        "en-AU"
+      ],
+      "publisher": {
+        "@type": "Organization",
+        "name": "TaxClean Technologies",
+        "url": "https://taxcleanza.com"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://taxcleanza.com/guides/#breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://taxcleanza.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://taxcleanza.com/guides/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <style>
+    :root {
+      --primary: #10b981;
+      --primary-dark: #059669;
+      --primary-light: #ecfdf5;
+      --primary-border: #a7f3d0;
+      --slate-900: #090d16;
+      --slate-800: #1e293b;
+      --slate-600: #475569;
+      --slate-500: #64748b;
+      --slate-200: #e2e8f0;
+      --slate-50: #f8fafc;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f8fafc; color: #0f172a; line-height: 1.6; }
+    nav { background: var(--slate-900); padding: 16px 24px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    nav .wrap { max-width: 1040px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    nav .brand { color: #fff; font-weight: 800; font-size: 18px; text-decoration: none; }
+    nav .brand span { color: var(--primary); }
+    .header { max-width: 1040px; margin: 40px auto 20px auto; padding: 0 20px; }
+    h1 { font-size: 32px; font-weight: 900; color: #0f172a; margin-bottom: 8px; letter-spacing: -0.02em; }
+    p.lead { font-size: 16px; color: var(--slate-600); max-width: 720px; margin-bottom: 24px; }
+    
+    /* Country Filter Tabs */
+    .filter-tabs {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+    .filter-btn {
+      background: #fff;
+      border: 1px solid var(--slate-200);
+      border-radius: 9999px;
+      padding: 7px 16px;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--slate-700);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--slate-900);
+      color: #fff;
+      border-color: var(--slate-900);
+    }
+
+    .grid { max-width: 1040px; margin: 30px auto 60px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+    footer { background: #060c18; color: #94a3b8; padding: 36px 20px; font-size: 13px; text-align: center; }
+    footer a { color: #cbd5e1; text-decoration: none; margin: 0 10px; }
+    footer a:hover { color: var(--primary); }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="wrap">
+      <a href="/" class="brand">TaxClean<span>.</span></a>
+      <a href="/#app" style="background:var(--primary); color:#061326; font-weight:700; font-size:13px; padding:8px 16px; border-radius:6px; text-decoration:none;">Convert Statements Free &rarr;</a>
+    </div>
+  </nav>
+  <header class="header">
+    <div style="font-size:12px; font-weight:800; text-transform:uppercase; color:var(--primary-dark); margin-bottom:8px;">Knowledge Base &amp; Technical Specifications</div>
+    <h1>Bank Statement &amp; Accounting Troubleshooting Guides</h1>
+    <p class="lead">Step-by-step technical guides, exact CSV column layouts, and error fixes for South African, US, UK, and Australian bank statement imports into Sage Pastel, Xero, QuickBooks, MYOB, and FreeAgent.</p>
+    
+    <div class="filter-tabs">
+      <button type="button" class="filter-btn active" onclick="filterGuides('ALL')">All Guides (14)</button>
+      <button type="button" class="filter-btn" onclick="filterGuides('ZA')">🇿🇦 South Africa (9)</button>
+      <button type="button" class="filter-btn" onclick="filterGuides('US')">🇺🇸 United States (2)</button>
+      <button type="button" class="filter-btn" onclick="filterGuides('GB')">🇬🇧 United Kingdom (2)</button>
+      <button type="button" class="filter-btn" onclick="filterGuides('AU')">🇦🇺 Australia (1)</button>
+    </div>
+  </header>
+  <main class="grid" id="guidesGrid">
+            <div class="guide-item-card" data-country="ZA" style="background:#fff; border:1px solid var(--slate-200); border-radius:12px; padding:24px; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 8px rgba(0,0,0,0.04); transition:all 0.15s ease;">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+              <span style="display:inline-block; background:var(--primary-light); color:var(--primary-dark); font-size:11px; font-weight:800; text-transform:uppercase; padding:3px 10px; border-radius:99px; border:1px solid var(--primary-border);">
+                Capitec Bank &bull; Sage Pastel Partner &bull; Xero
+              </span>
+              <span style="font-size:12px; font-weight:700; color:var(--slate-500);">🇿🇦 ZA</span>
+            </div>
+            <h3 style="font-size:18px; font-weight:800; color:var(--slate-900); margin-bottom:8px; line-height:1.35;">
+              <a href="/guides/convert-capitec-pdf-to-sage-pastel.html" style="color:inherit; text-decoration:none;">How to Convert Capitec PDF Bank Statements to Sage Pastel Partner & Xero (Without CSV Errors)</a>
+            </h3>
+            <p style="font-size:14px; color:var(--slate-600); line-height:1.5; margin-bottom:16px;">
+              Convert Capitec Global One & Business PDF statements into balanced Sage Pastel Cashbook CSV & Xero without column mismatches or broken multi-row descriptions.
+            </p>
+          </div>
+          <div>
+            <a href="/guides/convert-capitec-pdf-to-sage-pastel.html" style="color:var(--primary-dark); font-size:13.5px; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:4px;">
+              Read Technical Guide &rarr;
+            </a>
+          </div>
+        </div>
+        <div class="guide-item-card" data-country="ZA" style="background:#fff; border:1px solid var(--slate-200); border-radius:12px; padding:24px; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 8px rgba(0,0,0,0.04); transition:all 0.15s ease;">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+              <span style="display:inline-block; background:var(--primary-light); color:var(--primary-dark); font-size:11px; font-weight:800; text-transform:uppercase; padding:3px 10px; border-radius:99px; border:1px solid var(--primary-border);">
+                FNB Banking &bull; Sage Pastel Partner &bull; Cashbook
+              </span>
+              <span style="font-size:12px; font-weight:700; color:var(--slate-500);">🇿🇦 ZA</span>
+            </div>
+            <h3 style="font-size:18px; font-weight:800; color:var(--slate-900); margin-bottom:8px; line-height:1.35;">
+              <a href="/guides/fnb-csv-date-format-error-sage-pastel.html" style="color:inherit; text-decoration:none;">How to Fix FNB CSV Import Errors in Sage Pastel Partner ("Invalid Date Format" & Metadata Crashes)</a>
+            </h3>
+            <p style="font-size:14px; color:var(--slate-600); line-height:1.5; margin-bottom:16px;">
+              Solve FNB CSV date format errors (YYYY/MM/DD to DD/MM/YYYY) and metadata header crashes when importing bank statements into Sage Pastel Cashbook.
+            </p>
+          </div>
+          <div>
+            <a href="/guides/fnb-csv-date-format-error-sage-pastel.html" style="color:var(--primary-dark); font-size:13.5px; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:4px;">
+              Read Technical Guide &rarr;
+            </a>
+          </div>
+        </div>
+        <div class="guide-item-card" data-country="ZA" style="background:#fff; border:1px solid var(--slate-200); border-radius:12px; padding:24px; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 8px rgba(0,0,0,0.04); transition:all 0.15s ease;">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+              <span style="display:inline-block; background:var(--primary-light); color:var(--primary-dark); font-size:11px; font-weight:800; text-transform:uppercase; padding:3px 10px; border-radius:99px; border:1px solid var(--primary-border);">
+                Standard Bank &bull; Sage Business Cloud &bull; Pastel
+              </span>
+              <span style="font-size:12px; font-weight:700; color:var(--slate-500);">🇿🇦 ZA</span>
+            </div>
+            <h3 style="font-size:18px; font-weight:800; color:var(--slate-900); margin-bottom:8px; line-height:1.35;">
+              <a href="/guides/standard-bank-csv-format-sage-business-cloud.html" style="color:inherit; text-decoration:none;">Standard Bank CSV Format for Sage Business Cloud & Pastel Partner (Fix Layout Mismatch)</a>
+            </h3>
+            <p style="font-size:14px; color:var(--slate-600); line-height:1.5; margin-bottom:16px;">
+              Fix Standard Bank CSV layout mismatch errors in Sage Business Cloud Accounting (Sage One) and Pastel Partner. Complete column mapping guide.
+            </p>
+          </div>
+          <div>
+            <a href="/guides/standard-bank-csv-format-sage-business-cloud.html" style="color:var(--primary-dark); font-size:13.5px; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:4px;">
+              Read Technical Guide &rarr;
+            </a>
+          </div>
+        </div>
+        <div class="guide-item-card" data-country="ZA" style="background:#fff; border:1px solid var(--slate-200); border-radius:12px; padding:24px; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 8px rgba(0,0,0,0.04); transition:all 0.15s ease;">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+              <span style="display:inline-block; background:var(--primary-light); color:var(--primary-dark); font-size:11px; font-weight:800; text-transform:uppercase; padding:3px 10px; border-radius:99px; border:1px solid var(--primary-border);">
+                Nedbank &bull; Xero &bull; Sage Pastel
+              </span>
+              <span style="font-size:12px; font-weight:700; color:var(--slate-500);">🇿🇦 ZA</span>
+            </div>
+            <h3 style="font-size:18px; font-weight:800; color:var(--slate-900); margin-bottom:8px; line-height:1.35;">
+              <a href="/guides/convert-nedbank-pdf-statement-to-csv-xero.html" style="color:inherit; text-decoration:none;">How to Convert Nedbank Password-Protected PDF Statements to CSV for Xero & Pastel</a>
+            </h3>
+            <p style="font-size:14px; color:var(--slate-600); line-height:1.5; margin-bottom:16px;">
+              Convert password-protected Nedbank PDF bank statements into balanced CSV for Xero, Sage Pastel, and QuickBooks Online with zero data leaks.
+            </p>
+          </div>
+          <div>
+            <a href="/guides/convert-nedbank-pdf-statement-to-csv-xero.html" style="color:var(--primary-dark); font-size:13.5px; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:4px;">
+              Read Technical Guide &rarr;
+            </a>
+          </div>
+        </div>
+        <div class="guide-item-card" data-country="ZA" style="background:#fff; border:1px solid var(--slate-200); border-radius:12px; padding:24px; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 8px rgba(0,0,0,0.04); transition:all 0.15s ease;">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+              <span style="display:inline-block; background:var(--primary-light); color:var(--primary-dark); font-size:11px; font-weight:800; text-transform:uppercase; padding:3px 10px; border-radius:99px; border:1px solid var(--primary-border);">
+                Absa Bank &bull; Sage Pastel Partner &bull; Chrono-Sort
+              </span>
+              <span style="font-size:12px; font-weight:700; color:var(--slate-500);">🇿🇦 ZA</span>
+            </div>
+            <h3 style="font-size:18px; font-weight:800; color:var(--slate-900); margin-bottom:8px; line-height:1.35;">
+              <a href="/guides/absa-csv-reverse-order-sage-pastel.html" style="color:inherit; text-decoration:none;">How to Reverse Absa Bank CSV Order & Date Format for Sage Pastel Cashbook</a>
+            </h3>
+            <p style="font-size:14px; color:var(--slate-600); line-height:1.5; margin-bottom:16px;">
+              Fix Absa bank statement reverse chronological order and ISO date format errors when importing into Sage Pastel Partner Cashbook.
+            </p>
+          </div>
+          <div>
+            <a href="/guides/absa-csv-reverse-order-sage-pastel.html" style="color:var(--primary-dark); font-size:13.5px; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:4px;">
+              Read Technical Guide &rarr;
+            </a>
+          </div>
+        </div>
+        <div class="guide-item-card" data-country="ZA" style="background:#fff; border:1px solid var(--slate-200); border-radius:12px; padding:24px; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 8px rgba(0,0,0,0.04); transition:all 0.15s ease;">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+              <span style="display:inline-block; background:var(--primary-light); color:var(--primary-dark); font-size:11px; font-weight:800; text-transform:uppercase; padding:3px 10px; border-radius:99px; border:1px solid var(--primary-border);">
+                Sage Pastel Partner &bull; Cashbook Specification &bull; Reference
+              </span>
+              <span style="font-size:12px; font-weight:700; color:var(--slate-500);">🇿🇦 ZA</span>
+            </div>
+            <h3 style="font-size:18px; font-weight:800; color:var(--slate-900); margin-bottom:8px; line-height:1.35;">
+              <a href="/guides/sage-pastel-bank-statement-csv-specification.html" style="color:inherit; text-decoration:none;">Sage Pastel Partner Bank Statement CSV Layout & Format Specification</a>
+            </h3>
+            <p style="font-size:14px; color:var(--slate-600); line-height:1.5; margin-bottom:16px;">
+              The complete layout specification for Sage Pastel Partner & Xpress cashbook CSV imports. Column orders, character limits, delimiters, and sample files.
+            </p>
+          </div>
+          <div>
+            <a href="/guides/sage-pastel-bank-statement-csv-specification.html" style="color:var(--primary-dark); font-size:13.5px; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:4px;">
+              Read Technical Guide &rarr;
+            </a>
+          </div>
+        </div>
+        <div class="guide-item-card" data-country="ZA" style="background:#fff; border:1px solid var(--slate-200); border-radius:12px; padding:24px; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 8px rgba(0,0,0,0.04); transition:all 0.15s ease;">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+              <span style="display:inline-block; background:var(--primary-light); color:var(--primary-dark); font-size:11px; font-weight:800; text-transform:uppercase; padding:3px 10px; border-radius:99px; border:1px solid var(--primary-border);">
+                POPIA Act 4 of 2013 &bull; Data Security &bull; Accounting Firms
+              </span>
+              <span style="font-size:12px; font-weight:700; color:var(--slate-500);">🇿🇦 ZA</span>
+            </div>
+            <h3 style="font-size:18px; font-weight:800; color:var(--slate-900); margin-bottom:8px; line-height:1.35;">
+              <a href="/guides/popia-compliance-bank-statements-accounting-south-africa.html" style="color:inherit; text-decoration:none;">POPIA Section 72 & Client Bank Statements: Why SA Accounting Practices Must Stop Using Cloud PDF Converters</a>
+            </h3>
+            <p style="font-size:14px; color:var(--slate-600); line-height:1.5; margin-bottom:16px;">
+              Understand POPIA Section 72 transborder liabilities when converting client bank statements. Why cloud PDF tools violate South African data privacy laws.
+            </p>
+          </div>
+          <div>
+            <a href="/guides/popia-compliance-bank-statements-accounting-south-africa.html" style="color:var(--primary-dark); font-size:13.5px; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:4px;">
+              Read Technical Guide &rarr;
+            </a>
+          </div>
+        </div>
+        <div class="guide-item-card" data-country="ZA" style="background:#fff; border:1px solid var(--slate-200); border-radius:12px; padding:24px; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 8px rgba(0,0,0,0.04); transition:all 0.15s ease;">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+              <span style="display:inline-block; background:var(--primary-light); color:var(--primary-dark); font-size:11px; font-weight:800; text-transform:uppercase; padding:3px 10px; border-radius:99px; border:1px solid var(--primary-border);">
+                South Africa &bull; SARS VAT201 &bull; eFiling &bull; Sage Pastel
+              </span>
+              <span style="font-size:12px; font-weight:700; color:var(--slate-500);">🇿🇦 ZA</span>
+            </div>
+            <h3 style="font-size:18px; font-weight:800; color:var(--slate-900); margin-bottom:8px; line-height:1.35;">
+              <a href="/guides/sars-vat201-efiling-bank-reconciliation-guide.html" style="color:inherit; text-decoration:none;">How to Reconcile Bank Statements for SARS VAT201 eFiling (Without Audit Disallowances)</a>
+            </h3>
+            <p style="font-size:14px; color:var(--slate-600); line-height:1.5; margin-bottom:16px;">
+              Reconcile South African bank statements for SARS VAT201 eFiling. Step-by-step 15/115 tax fraction calculation, zero-rated fuel, and entertainment disallowances.
+            </p>
+          </div>
+          <div>
+            <a href="/guides/sars-vat201-efiling-bank-reconciliation-guide.html" style="color:var(--primary-dark); font-size:13.5px; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:4px;">
+              Read Technical Guide &rarr;
+            </a>
+          </div>
+        </div>
+        <div class="guide-item-card" data-country="ZA" style="background:#fff; border:1px solid var(--slate-200); border-radius:12px; padding:24px; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 8px rgba(0,0,0,0.04); transition:all 0.15s ease;">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+              <span style="display:inline-block; background:var(--primary-light); color:var(--primary-dark); font-size:11px; font-weight:800; text-transform:uppercase; padding:3px 10px; border-radius:99px; border:1px solid var(--primary-border);">
+                South Africa &bull; Discovery Bank &bull; Xero &bull; Excel
+              </span>
+              <span style="font-size:12px; font-weight:700; color:var(--slate-500);">🇿🇦 ZA</span>
+            </div>
+            <h3 style="font-size:18px; font-weight:800; color:var(--slate-900); margin-bottom:8px; line-height:1.35;">
+              <a href="/guides/convert-discovery-bank-pdf-statement-to-excel-xero.html" style="color:inherit; text-decoration:none;">How to Convert Discovery Bank PDF Statements to Excel & Xero (Strip Vitality Points)</a>
+            </h3>
+            <p style="font-size:14px; color:var(--slate-600); line-height:1.5; margin-bottom:16px;">
+              Convert Discovery Bank Gold, Platinum & Black PDF statements to clean Excel (.xlsx) and Xero CSV. Strips Vitality Money cashback points and currency conversion lines.
+            </p>
+          </div>
+          <div>
+            <a href="/guides/convert-discovery-bank-pdf-statement-to-excel-xero.html" style="color:var(--primary-dark); font-size:13.5px; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:4px;">
+              Read Technical Guide &rarr;
+            </a>
+          </div>
+        </div>
+        <div class="guide-item-card" data-country="US" style="background:#fff; border:1px solid var(--slate-200); border-radius:12px; padding:24px; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 8px rgba(0,0,0,0.04); transition:all 0.15s ease;">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+              <span style="display:inline-block; background:var(--primary-light); color:var(--primary-dark); font-size:11px; font-weight:800; text-transform:uppercase; padding:3px 10px; border-radius:99px; border:1px solid var(--primary-border);">
+                United States &bull; Chase Bank &bull; QuickBooks Online &bull; Desktop IIF
+              </span>
+              <span style="font-size:12px; font-weight:700; color:var(--slate-500);">🇺🇸 US</span>
+            </div>
+            <h3 style="font-size:18px; font-weight:800; color:var(--slate-900); margin-bottom:8px; line-height:1.35;">
+              <a href="/guides/convert-chase-pdf-statement-to-quickbooks-online-iif.html" style="color:inherit; text-decoration:none;">How to Convert JPMorgan Chase PDF Statements to QuickBooks Online & Desktop (.IIF)</a>
+            </h3>
+            <p style="font-size:14px; color:var(--slate-600); line-height:1.5; margin-bottom:16px;">
+              Convert JPMorgan Chase checking and commercial credit card PDF statements to QuickBooks Online (.csv) and QuickBooks Desktop (.iif) with MM/DD/YYYY dates.
+            </p>
+          </div>
+          <div>
+            <a href="/guides/convert-chase-pdf-statement-to-quickbooks-online-iif.html" style="color:var(--primary-dark); font-size:13.5px; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:4px;">
+              Read Technical Guide &rarr;
+            </a>
+          </div>
+        </div>
+        <div class="guide-item-card" data-country="GB" style="background:#fff; border:1px solid var(--slate-200); border-radius:12px; padding:24px; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 8px rgba(0,0,0,0.04); transition:all 0.15s ease;">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+              <span style="display:inline-block; background:var(--primary-light); color:var(--primary-dark); font-size:11px; font-weight:800; text-transform:uppercase; padding:3px 10px; border-radius:99px; border:1px solid var(--primary-border);">
+                United Kingdom &bull; Barclays Bank &bull; Xero &bull; FreeAgent &bull; HMRC MTD
+              </span>
+              <span style="font-size:12px; font-weight:700; color:var(--slate-500);">🇬🇧 GB</span>
+            </div>
+            <h3 style="font-size:18px; font-weight:800; color:var(--slate-900); margin-bottom:8px; line-height:1.35;">
+              <a href="/guides/convert-barclays-pdf-statement-to-xero-freeagent.html" style="color:inherit; text-decoration:none;">How to Convert Barclays PDF Bank Statements to Xero & FreeAgent (HMRC MTD Ready)</a>
+            </h3>
+            <p style="font-size:14px; color:var(--slate-600); line-height:1.5; margin-bottom:16px;">
+              Convert Barclays business and personal PDF bank statements into balanced Xero and FreeAgent CSVs. Solves disconnected Open Banking feeds and multi-line descriptions.
+            </p>
+          </div>
+          <div>
+            <a href="/guides/convert-barclays-pdf-statement-to-xero-freeagent.html" style="color:var(--primary-dark); font-size:13.5px; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:4px;">
+              Read Technical Guide &rarr;
+            </a>
+          </div>
+        </div>
+        <div class="guide-item-card" data-country="US" style="background:#fff; border:1px solid var(--slate-200); border-radius:12px; padding:24px; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 8px rgba(0,0,0,0.04); transition:all 0.15s ease;">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+              <span style="display:inline-block; background:var(--primary-light); color:var(--primary-dark); font-size:11px; font-weight:800; text-transform:uppercase; padding:3px 10px; border-radius:99px; border:1px solid var(--primary-border);">
+                United States • Bank of America • QuickBooks Online • Excel
+              </span>
+              <span style="font-size:12px; font-weight:700; color:var(--slate-500);">🇺🇸 US</span>
+            </div>
+            <h3 style="font-size:18px; font-weight:800; color:var(--slate-900); margin-bottom:8px; line-height:1.35;">
+              <a href="/guides/convert-bank-of-america-pdf-statement-to-quickbooks-excel.html" style="color:inherit; text-decoration:none;">How to Convert Bank of America PDF Statements to QuickBooks Online & Excel</a>
+            </h3>
+            <p style="font-size:14px; color:var(--slate-600); line-height:1.5; margin-bottom:16px;">
+              Fix Bank of America PDF statement date errors and check table splits. Convert BofA checking & credit card PDFs to QuickBooks Online (QBO 3-column CSV) & Excel.
+            </p>
+          </div>
+          <div>
+            <a href="/guides/convert-bank-of-america-pdf-statement-to-quickbooks-excel.html" style="color:var(--primary-dark); font-size:13.5px; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:4px;">
+              Read Technical Guide &rarr;
+            </a>
+          </div>
+        </div>
+        <div class="guide-item-card" data-country="GB" style="background:#fff; border:1px solid var(--slate-200); border-radius:12px; padding:24px; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 8px rgba(0,0,0,0.04); transition:all 0.15s ease;">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+              <span style="display:inline-block; background:var(--primary-light); color:var(--primary-dark); font-size:11px; font-weight:800; text-transform:uppercase; padding:3px 10px; border-radius:99px; border:1px solid var(--primary-border);">
+                United Kingdom • HSBC UK • Xero • Sage Business Cloud • HMRC MTD
+              </span>
+              <span style="font-size:12px; font-weight:700; color:var(--slate-500);">🇬🇧 GB</span>
+            </div>
+            <h3 style="font-size:18px; font-weight:800; color:var(--slate-900); margin-bottom:8px; line-height:1.35;">
+              <a href="/guides/convert-hsbc-uk-pdf-statement-to-xero-sage.html" style="color:inherit; text-decoration:none;">How to Convert HSBC UK PDF Statements to Xero & Sage (Fix Trailing Minus Signs)</a>
+            </h3>
+            <p style="font-size:14px; color:var(--slate-600); line-height:1.5; margin-bottom:16px;">
+              Convert HSBC UK business and Kinetic bank statement PDFs to Xero and Sage CSV. Fixes trailing minus signs, mid-statement fee summaries, and DD/MM/YYYY dates.
+            </p>
+          </div>
+          <div>
+            <a href="/guides/convert-hsbc-uk-pdf-statement-to-xero-sage.html" style="color:var(--primary-dark); font-size:13.5px; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:4px;">
+              Read Technical Guide &rarr;
+            </a>
+          </div>
+        </div>
+        <div class="guide-item-card" data-country="AU" style="background:#fff; border:1px solid var(--slate-200); border-radius:12px; padding:24px; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 2px 8px rgba(0,0,0,0.04); transition:all 0.15s ease;">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+              <span style="display:inline-block; background:var(--primary-light); color:var(--primary-dark); font-size:11px; font-weight:800; text-transform:uppercase; padding:3px 10px; border-radius:99px; border:1px solid var(--primary-border);">
+                Australia • CommBank • CommBiz • Xero • MYOB • ATO BAS
+              </span>
+              <span style="font-size:12px; font-weight:700; color:var(--slate-500);">🇦🇺 AU</span>
+            </div>
+            <h3 style="font-size:18px; font-weight:800; color:var(--slate-900); margin-bottom:8px; line-height:1.35;">
+              <a href="/guides/convert-commbank-pdf-statement-to-xero-myob.html" style="color:inherit; text-decoration:none;">How to Convert CommBank PDF Statements to Xero & MYOB (ATO BAS Ready)</a>
+            </h3>
+            <p style="font-size:14px; color:var(--slate-600); line-height:1.5; margin-bottom:16px;">
+              Convert CommBank & CommBiz PDF statements to Xero and MYOB CSV. Formats DD/MM/YYYY dates, strips pending PayID lines, and prepares data for ATO BAS 10% GST.
+            </p>
+          </div>
+          <div>
+            <a href="/guides/convert-commbank-pdf-statement-to-xero-myob.html" style="color:var(--primary-dark); font-size:13.5px; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:4px;">
+              Read Technical Guide &rarr;
+            </a>
+          </div>
+        </div>
+  </main>
+  
+  <script>
+    function filterGuides(country) {
+      document.querySelectorAll('.filter-btn').forEach(function(btn) { btn.classList.remove('active'); });
+      if (window.event && window.event.target) { window.event.target.classList.add('active'); }
+      var cards = document.querySelectorAll('.guide-item-card');
+      cards.forEach(function(card) {
+        if (country === 'ALL' || card.getAttribute('data-country') === country) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+  <footer>
+    <p>&copy; 2026 TaxClean Technologies. Local browser bank statement converter &bull; Port Shepstone, KZN.</p>
+    <p style="margin-top: 10px;">
+      <a href="/">Home</a>
+      <a href="/guides/">All Guides</a>
+      <a href="/privacy.html">POPIA Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="mailto:sales@taxcleanza.com">Contact Support</a>
+    </p>
+  </footer>
+</body>
+</html>

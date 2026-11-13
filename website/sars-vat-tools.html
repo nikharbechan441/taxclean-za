@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free SARS 15% VAT & Diesel Rebate Calculator | TaxClean</title>
+<meta name="description" content="Free South African 15% VAT calculator, SARS 10-digit VAT number Mod-10 validator, Diesel Rebate calculator &amp; SARS VAT201 Excel template.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Free SARS 15% VAT Calculator, VAT Number Validator & Diesel Rebate Hub | TaxClean">
+<meta property="og:description" content="Instant browser-based South African 15% VAT calculator, 10-digit VAT number validator, Diesel Refund calculator, and free SARS VAT201 Excel template.">
+<meta property="og:url" content="https://taxcleanza.com/sars-vat-tools.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://taxcleanza.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="canonical" href="https://taxcleanza.com/sars-vat-tools.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "TaxClean — Free SARS VAT Calculator, VAT Number Validator & Diesel Rebate Tools",
+  "url": "https://taxcleanza.com/sars-vat-tools.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "ZAR"
+  }
+}
+</script>
+<style>
+  :root {
+    --bg: #0b1120;
+    --card: #0f172a;
+    --border: #1e293b;
+    --text: #f8fafc;
+    --muted: #94a3b8;
+    --emerald: #10b981;
+    --indigo: #6366f1;
+    --amber: #f59e0b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .brand { font-size: 20px; font-weight: 800; color: #fff; text-decoration: none; }
+  .brand span { color: var(--emerald); }
+  .nav-links { display: flex; gap: 20px; align-items: center; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 600; }
+  .nav-links a:hover { color: #fff; }
+  .btn-primary {
+    background: var(--emerald);
+    color: #052e16 !important;
+    padding: 9px 18px;
+    border-radius: 8px;
+    font-weight: 700 !important;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .container { max-width: 1180px; margin: 0 auto; padding: 40px 24px 80px; }
+  .hero { text-align: center; max-width: 820px; margin: 0 auto 40px; }
+  .badge {
+    display: inline-block;
+    background: rgba(16, 185, 129, 0.12);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    padding: 4px 14px;
+    border-radius: 999px;
+    font-size: 12.5px;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  h1 { font-size: 34px; font-weight: 800; line-height: 1.25; margin-bottom: 12px; }
+  .hero p { color: var(--muted); font-size: 16px; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  .tool-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 26px;
+  }
+  .tool-card h2 { font-size: 19px; margin-bottom: 6px; color: #fff; }
+  .tool-card p.sub { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
+  label { display: block; font-size: 13px; font-weight: 600; color: #cbd5e1; margin-bottom: 6px; }
+  input, select {
+    width: 100%;
+    padding: 11px 14px;
+    background: #0b1120;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 15px;
+    font-family: Consolas, monospace;
+    margin-bottom: 14px;
+  }
+  .result-box {
+    background: #131c31;
+    border: 1px solid #1e293b;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-top: 8px;
+  }
+  .res-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-size: 14px;
+  }
+  .res-row:last-child { border-bottom: none; }
+  .res-val { font-family: Consolas, monospace; font-weight: 700; color: #34d399; }
+  .cta-banner {
+    background: linear-gradient(135deg, #064e3b 0%, #0f172a 100%);
+    border: 1px solid #10b981;
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .cta-banner h3 { font-size: 22px; margin-bottom: 8px; }
+  .cta-banner p { color: #cbd5e1; max-width: 640px; font-size: 15px; }
+  .cta-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-secondary {
+    background: #1e293b;
+    color: #f8fafc;
+    border: 1px solid #475569;
+    padding: 11px 18px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  @media (max-width: 768px) {
+    nav { flex-direction: column; align-items: flex-start; gap: 12px; padding: 14px 16px; }
+    .nav-links { flex-wrap: wrap; gap: 10px; width: 100%; }
+    .grid { grid-template-columns: 1fr; }
+    h1 { font-size: 26px; }
+    .cta-banner { padding: 22px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="brand" style="display:flex;align-items:center;gap:10px"><img src="favicon.png" width="32" height="32" alt="TaxClean" style="width:32px;height:32px;border-radius:7px">TaxClean <span>ZA</span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="/demo" style="color:#38bdf8">Interactive Demo</a>
+    <a href="autoentry-alternative-south-africa.html">vs AutoEntry</a>
+    <a href="dext-prepare-alternative-south-africa.html">vs Dext</a>
+    <a href="fnb-capitec-pdf-to-sage-pastel-xero.html">FNB & Capitec to Pastel/Xero</a>
+    <a href="standard-bank-absa-nedbank-pdf-to-csv-excel.html">Std Bank, ABSA & Nedbank</a>
+    <a href="/download" class="btn-primary">⬇ Direct Download (.exe)</a>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="hero">
+    <span class="badge">🇿🇦 100% Free South African Bookkeeper & Tax Practitioner Utilities</span>
+    <h1>SARS 15% VAT Calculator, VAT Number Validator & Diesel Rebate Hub</h1>
+    <p>Instant, browser-based calculations for South African VAT201 returns — plus our free downloadable SARS VAT201 Excel Audit Working Paper template.</p>
+  </div>
+
+  <div class="grid">
+    <!-- Tool 1: 15% ZAR VAT Calculator -->
+    <div class="tool-card">
+      <h2>🧮 South Africa 15% VAT Calculator</h2>
+      <p class="sub">Instantly extract 15% VAT from inclusive bank transactions or add 15% VAT to net invoices.</p>
+      <label for="vatAmount">Amount in Rand (ZAR):</label>
+      <input type="number" id="vatAmount" value="11500.00" step="0.01">
+      <label for="vatMode">Calculation Mode:</label>
+      <select id="vatMode">
+        <option value="incl">Amount Includes 15% VAT (Extract VAT — x 15 / 115)</option>
+        <option value="excl">Amount Excludes VAT (Add 15% VAT)</option>
+      </select>
+      <div class="result-box">
+        <div class="res-row"><span>Net Excl. VAT (ZAR):</span><span class="res-val" id="resExcl">R 10,000.00</span></div>
+        <div class="res-row"><span>SARS 15% VAT Amount:</span><span class="res-val" id="resVat">R 1,500.00</span></div>
+        <div class="res-row"><span>Gross Incl. VAT (ZAR):</span><span class="res-val" id="resIncl">R 11,500.00</span></div>
+      </div>
+    </div>
+
+    <!-- Tool 2: SARS 10-Digit VAT Number Validator -->
+    <div class="tool-card">
+      <h2>🛡️ SARS Section 20 VAT Number Validator</h2>
+      <p class="sub">Verify any South African supplier's 10-digit VAT number format (prefix 4) and Mod-10 check digit. Confirm live vendor registration on SARS eFiling VAT Vendor Search.</p>
+      <label for="vatNumInput">Enter 10-Digit SARS VAT Number (starts with 4):</label>
+      <input type="text" id="vatNumInput" value="4010192831" maxlength="12" placeholder="e.g. 4010192831">
+      <div class="result-box" id="vatCheckBox">
+        <div class="res-row"><span>Format Check (10 digits starting with 4):</span><span class="res-val" id="vcFormat">✓ Valid</span></div>
+        <div class="res-row"><span>Mod-10 Check Digit Status:</span><span class="res-val" id="vcLuhn">✓ Valid Check Digit</span></div>
+        <div class="res-row"><span>Section 20 Tax Invoice Status:</span><span class="res-val" id="vcSec20">Format Valid — Verify on SARS eFiling</span></div>
+      </div>
+    </div>
+
+    <!-- Tool 3: SARS Diesel Rebate Calculator -->
+    <div class="tool-card">
+      <h2>⛽ SARS Diesel Refund Calculator (Farming / Mining)</h2>
+      <p class="sub">Estimate eligible litres (80% of qualifying primary production usage under Schedule 6 Note 6; verify current gazetted rate per sector/period).</p>
+      <label for="dieselLitres">Total Qualifying Litres Purchased (Logbook):</label>
+      <input type="number" id="dieselLitres" value="5000" step="10">
+      <label for="dieselRate">Eligible SARS Refund Rate (Cents / Litre):</label>
+      <input type="number" id="dieselRate" value="354" step="1">
+      <div class="result-box">
+        <div class="res-row"><span>80% Eligible Litres (Schedule 6 Estimate):</span><span class="res-val" id="resLitres">4,000 L</span></div>
+        <div class="res-row"><span>Estimated SARS Diesel Rebate:</span><span class="res-val" id="resDieselZar">R 14,160.00</span></div>
+      </div>
+    </div>
+
+    <!-- Tool 4: Bookkeeper Cloud Credit & Time Savings Calculator (/free-tools) -->
+    <div class="tool-card" style="border-color:#10b98160;">
+      <h2>📊 Bookkeeper Time &amp; Cloud Credit Savings Calculator</h2>
+      <p class="sub">Compare annual per-page cloud OCR credit costs (AutoEntry / Dext) and manual capture hours against TaxClean flat-rate local licensing.</p>
+      <label for="calcPagesMo">Monthly PDF Bank Statement Pages Processed:</label>
+      <input type="number" id="calcPagesMo" value="180" min="10" max="5000" step="10">
+      <label for="calcPlanCompare">TaxClean Plan to Compare:</label>
+      <select id="calcPlanCompare">
+        <option value="1199">Solo Practice (1 PC) — R 1,199 / year (or R 149/mo)</option>
+        <option value="2999" selected>Practice Pro (3 PCs) — R 2,999 / year (or R 349/mo)</option>
+        <option value="6999">Accounting Firm (10 PCs) — R 6,999 / year</option>
+      </select>
+      <div class="result-box">
+        <div class="res-row"><span>Est. Cloud Credit Cost / Yr:</span><span class="res-val" id="resCloudCost" style="color:#f87171;">R 21,384.00</span></div>
+        <div class="res-row"><span>Annual ZAR Saved with TaxClean:</span><span class="res-val" id="resZarSaved" style="color:#34d399;">R 18,385.00 / yr</span></div>
+        <div class="res-row"><span>Manual Typing Hours Freed:</span><span class="res-val" id="resHoursSaved" style="color:#38bdf8;">144 hrs / yr</span></div>
+      </div>
+      <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+        <a href="/?buy=solo_monthly" class="btn-primary" style="font-size:12.5px;padding:8px 12px;">⚡ Start Solo (R 149/mo)</a>
+        <a href="/?buy=pro_annual" class="btn-secondary" style="font-size:12.5px;padding:8px 12px;">💳 Order Pro (R 2,999/yr)</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-banner">
+    <div>
+      <h3>Doing This Across a 20-Page PDF Bank Statement?</h3>
+      <p>Stop typing FNB, Capitec, Standard Bank, ABSA, and Nedbank PDFs by hand. <strong>TaxClean</strong> runs 100% offline on Windows, verifies Opening + Net = Closing balance, auto-calculates SARS 15% VAT, and exports directly to <strong>Sage Pastel, Xero, QuickBooks, and SARS VAT201 Excel Workbooks</strong>.</p>
+    </div>
+    <div class="cta-buttons">
+      <a href="/download" class="btn-primary" style="padding:12px 22px;font-size:15px;">⬇ Download Free Trial for Windows (.exe)</a>
+      <a href="SARS_VAT201_Working_Paper_Template.xlsx" download class="btn-secondary">📥 Free SARS VAT201 Excel Template (.xlsx)</a>
+    </div>
+  </div>
+</div>
+
+<script>
+function fmtZar(n) {
+  return 'R ' + n.toLocaleString('en-ZA', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+}
+
+function calcVAT() {
+  const val = parseFloat(document.getElementById('vatAmount').value) || 0;
+  const mode = document.getElementById('vatMode').value;
+  let excl = 0, vat = 0, incl = 0;
+  if (mode === 'incl') {
+    incl = val;
+    vat = val * (15 / 115);
+    excl = val - vat;
+  } else {
+    excl = val;
+    vat = val * 0.15;
+    incl = val + vat;
+  }
+  document.getElementById('resExcl').textContent = fmtZar(excl);
+  document.getElementById('resVat').textContent = fmtZar(vat);
+  document.getElementById('resIncl').textContent = fmtZar(incl);
+}
+
+function checkVatNumber() {
+  const raw = document.getElementById('vatNumInput').value.replace(/\D/g, '');
+  const fEl = document.getElementById('vcFormat');
+  const lEl = document.getElementById('vcLuhn');
+  const sEl = document.getElementById('vcSec20');
+
+  if (raw.length !== 10 || !raw.startsWith('4')) {
+    fEl.textContent = '✗ Must be 10 digits starting with 4';
+    fEl.style.color = '#f87171';
+    lEl.textContent = '—';
+    sEl.textContent = 'Invalid VAT Number';
+    sEl.style.color = '#f87171';
+    return;
+  }
+  fEl.textContent = '✓ Valid (10 digits, prefix 4)';
+  fEl.style.color = '#34d399';
+
+  // Standard Mod-10 check digit validation
+  let total = 0;
+  for (let i = 0; i < 9; i++) {
+    let d = parseInt(raw[i], 10);
+    if (i % 2 === 0) {
+      d *= 2;
+      if (d > 9) d = Math.floor(d / 10) + (d % 10);
+    }
+    total += d;
+  }
+  const checkDigit = (10 - (total % 10)) % 10;
+  const actualCheck = parseInt(raw[9], 10);
+
+  if (checkDigit === actualCheck) {
+    lEl.textContent = '✓ Valid Mod-10 Check Digit (' + actualCheck + ')';
+    lEl.style.color = '#34d399';
+    sEl.textContent = '✓ Format Valid — Verify on SARS eFiling';
+    sEl.style.color = '#34d399';
+  } else {
+    lEl.textContent = `✗ Checksum Mismatch (Expected ends in ${checkDigit})`;
+    lEl.style.color = '#fbbf24';
+    sEl.textContent = '⚠ Verify Supplier on SARS eFiling';
+    sEl.style.color = '#fbbf24';
+  }
+}
+
+function calcDiesel() {
+  const litres = parseFloat(document.getElementById('dieselLitres').value) || 0;
+  const rateCents = parseFloat(document.getElementById('dieselRate').value) || 0;
+  const eligLitres = litres * 0.80;
+  const refundZar = eligLitres * (rateCents / 100.0);
+  document.getElementById('resLitres').textContent = eligLitres.toLocaleString('en-ZA') + ' L';
+  document.getElementById('resDieselZar').textContent = fmtZar(refundZar);
+}
+
+function calcCloudSavings() {
+  const pagesMo = parseFloat(document.getElementById('calcPagesMo').value) || 0;
+  const planCost = parseFloat(document.getElementById('calcPlanCompare').value) || 2999;
+  const cloudAnnual = Math.round(pagesMo * 9.90 * 12);
+  const saved = Math.max(0, cloudAnnual - planCost);
+  const hoursYr = Math.round(pagesMo * 0.8);
+  document.getElementById('resCloudCost').textContent = fmtZar(cloudAnnual);
+  document.getElementById('resZarSaved').textContent = fmtZar(saved) + ' / yr';
+  document.getElementById('resHoursSaved').textContent = hoursYr.toLocaleString('en-ZA') + ' hrs / yr';
+}
+
+document.getElementById('vatAmount').addEventListener('input', calcVAT);
+document.getElementById('vatMode').addEventListener('change', calcVAT);
+document.getElementById('vatNumInput').addEventListener('input', checkVatNumber);
+document.getElementById('dieselLitres').addEventListener('input', calcDiesel);
+document.getElementById('dieselRate').addEventListener('input', calcDiesel);
+document.getElementById('calcPagesMo').addEventListener('input', calcCloudSavings);
+document.getElementById('calcPlanCompare').addEventListener('change', calcCloudSavings);
+calcVAT();
+checkVatNumber();
+calcDiesel();
+calcCloudSavings();
+</script>
+</body>
+</html>

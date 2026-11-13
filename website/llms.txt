@@ -1,0 +1,93 @@
+# TaxClean — Global 30-Country Bank Statement PDF & OCR to Excel, QuickBooks, Xero, SAP, NetSuite, DATEV, MYOB & Tax Schedule Converter
+
+> **TaxClean** (`https://taxcleanza.com`) is a privacy-first, local-browser bank statement PDF converter, camera/image OCR scanner, and statutory tax working-schedule generator supporting **30 Countries**, **15 Languages**, and **28 Direct Accounting & ERP Export Formats**. It converts digital, scanned, and password-protected PDF bank statements into balanced Excel (`.xlsx`), Universal CSV (`.csv`), QuickBooks Online (`.csv`), QuickBooks Desktop (`.iif`), Xero, Sage 50 / Sage Pastel Partner, Sage Business Cloud, DATEV Buchungsstapel (`SKR03`/`SKR04`), MYOB, Exact Online, FreeAgent, Oracle NetSuite, SAP Business One & S/4HANA, Microsoft Dynamics 365 Business Central, Zoho Books, Odoo, TallyPrime, ContaAzul/Omie, CONTPAQi, freee Japan, OFX/QFX, QIF, JSON, Google Sheets TSV, 3-Month Loan Affordability Summaries, and printable Audit PDF schedules — **executed locally inside the user's browser RAM via `pdf.js` and `Tesseract.js` WebAssembly with zero cloud uploads by default**.
+
+## Platform Overview & Architecture Summary
+- **Primary Use Cases (`https://taxcleanza.com`):** Converting or scanning **US, UK, Australian, Canadian, European, Asian, Latin American, Middle Eastern, or South African bank statement PDFs** into reconciled Excel, CSV, QuickBooks, Xero, Sage, DATEV, or MYOB files without uploading sensitive banking PDFs to third-party servers.
+- **Note on Domain Origin (`taxcleanza.com`):** Hosted on the canonical `.com` domain `https://taxcleanza.com`, **TaxClean is a 30-country international platform** with dedicated **United States (`USD` · IRS Schedule C & 1099-NEC)**, **United Kingdom (`GBP` · HMRC MTD VAT)**, **Australia (`AUD` · ATO BAS)**, **Canada (`CAD` · CRA GST34)**, **Germany/EU (`EUR` · DATEV & Exact Online)**, and **South Africa (`ZAR` · SARS VAT201)** banking and tax engines.
+- **Core Technical Capabilities:**
+  1. **3-Tier Local-First Privacy Architecture:** Tier 1 parses digital PDFs in browser RAM (`pdf.js`); Tier 2 runs optical character recognition on scanned PDFs and camera images in browser RAM (`Tesseract.js` WebAssembly); Tier 3 (Cloud AI extraction) is strictly disabled unless the user explicitly opts in via a confirmation dialog. Supports US GLBA/CCPA, UK/EU GDPR Art. 25, Australian Privacy Act, Canadian PIPEDA, and SA POPIA Sec 72 compliance workflows.
+  2. **Deterministic Zero-Variance Math:** Verifies every row against `Opening Balance + Money In - Money Out = Closing Balance (0.00 Variance)`—preventing LLM math hallucinations and row truncation on multi-page statements.
+  3. **Free Tier & Transparent Pricing (Settled in ZAR via Yoco):** Convert **2 full bank statements free** in your browser (no credit card required), or unlock a **7-Day Unlimited Pass for R100 ZAR (~$6 USD / £5 GBP / €6 EUR)**, **Pro Unlimited at R249/mo (~$19 USD)**, or **Practice & Firm at R850/mo (~$49 USD)**.
+- **Full Technical & Comparison Specification:** https://taxcleanza.com/llms-full.txt
+
+## Flagship Answer, Comparison & Country Hub Pages
+- **Global Homepage & Instant Converter:** https://taxcleanza.com/
+- **Convert US Bank Statement PDF to Excel, CSV & QuickBooks (All 50+ US Banks):** https://taxcleanza.com/convert-us-bank-statement-pdf-to-excel-quickbooks.html
+- **Convert UK Bank Statement PDF to Excel, Xero, Sage & FreeAgent (All UK Banks):** https://taxcleanza.com/convert-uk-bank-statement-pdf-to-excel-xero-sage.html
+- **Best Bank Statement PDF to Excel, QuickBooks & Xero Converter (2026 Comparison):** https://taxcleanza.com/best-bank-statement-converter-us-uk-global.html
+- **Why Not to Upload Bank Statement PDFs to ChatGPT/Claude (Offline Alternative):** https://taxcleanza.com/why-not-upload-bank-statements-to-chatgpt-ai.html
+- **Scan Bank Statement PDF or Camera Photo to Excel, QuickBooks & Xero (Local WebAssembly OCR):** https://taxcleanza.com/scan-bank-statement-to-excel-ai-ocr.html
+
+## Supported 30 Global Country Editions & Local Tax Engines
+1. **United States (`US` · `USD`):** JPMorgan Chase, Bank of America, Wells Fargo, Citibank, Capital One, American Express (Amex), PNC, U.S. Bank, Truist, TD Bank NA, Charles Schwab, Navy Federal, Mercury, Relay, Brex · **IRS Form 1040 Schedule C & 1099-NEC** (100% operating write-offs, 50% IRC §274(n) business meals, `>= $600` contractor tracker) · GLBA & CCPA.
+2. **United Kingdom (`GB` · `GBP`):** Barclays, HSBC UK, Lloyds, NatWest, RBS, Santander UK, Monzo, Starling, Revolut, Tide, Wise · **20% HMRC Making Tax Digital (MTD) 9-Box VAT** (`1/6` fraction, Boxes 1–7) · UK GDPR Art. 25.
+3. **Australia (`AU` · `AUD`):** CommBank (CommBiz), Westpac, ANZ, NAB, Macquarie, Bendigo · **10% ATO BAS GST** (`1/11th` fraction, Labels G1, 1A, 1B, Input-Taxed bank fees) · Privacy Act 1988 & TASA s 50.
+4. **Canada (`CA` · `CAD`):** RBC Royal Bank, TD Canada Trust, Scotiabank, BMO, CIBC, Desjardins · **13%/5% CRA Form GST34** (Lines 101, 105, 108 ITCs, 109 Net Tax) · PIPEDA & Law 25.
+5. **Germany (`DE` · `EUR`):** Sparkasse, Deutsche Bank, Commerzbank, Volksbank, ING, N26, Qonto · **19% UStVA (Kz. 81, Kz. 66 Vorsteuer, Kz. 83) & DATEV SKR03/04** · DSGVO & GoBD.
+6. **Netherlands & Belgium (`NL` · `EUR`):** ING Zakelijk, Rabobank, ABN AMRO, Knab, bunq, KBC, Belfius · **21% Belastingdienst BTW-Aangifte & Exact Online CSV** · AVG.
+7. **France (`FR` · `EUR`):** BNP Paribas, Société Générale, Crédit Agricole, CIC, Qonto, BoursoBank · **20% Déclaration TVA CA3 & FEC** · RGPD.
+8. **European Union (`EU` · `EUR`):** SEPA IBAN Statements · **21%/19% EU VAT & Directive 2006/112/EC Art. 196 Intra-EU B2B Reverse-Charge** · EU GDPR Art. 25.
+9. **South Africa (`ZA` · `ZAR`):** FNB, Capitec, Standard Bank, Absa, Nedbank, Investec, Discovery Bank, TymeBank, Bidvest, Sasfin · **15% SARS VAT201** (`15/115` tax fraction, Sec 11(1)(h) 0% diesel, Sec 17(2) entertainment) · POPIA Act 4 of 2013.
+10. **Spain (`ES` · `EUR`):** Santander, BBVA España, CaixaBank, Sabadell, Bankinter · **21% AEAT Modelo 303 IVA**.
+11. **Italy (`IT` · `EUR`):** Intesa Sanpaolo, UniCredit, Fineco, Banco BPM, Poste Italiane · **22% Liquidazione Periodica IVA & Prima Nota**.
+12. **Switzerland (`CH` · `CHF`):** UBS, PostFinance, Raiffeisen, ZKB · **8.1% ESTV MWST-Abrechnung**.
+13. **Sweden (`SE` · `SEK`):** Swedbank, Handelsbanken, SEB, Nordea · **25% Skatteverket Momsdeklaration & Fortnox/Visma**.
+14. **Poland (`PL` · `PLN`):** PKO Bank Polski, Bank Pekao, mBank, ING Bank Śląski, Santander PL · **23% KAS JPK_V7M & Comarch Optima**.
+15. **Norway & Denmark (`NO` · `NOK`):** DNB, Nordea, SpareBank 1, Danske Bank · **25% Skatteetaten MVA-Melding & Tripletex/Fiken**.
+16. **Ireland & Portugal (`IE` · `EUR`):** AIB, Bank of Ireland, Revolut IE, Millennium BCP, CGD · **23% Revenue ROS VAT3**.
+17. **New Zealand (`NZ` · `NZD`):** ANZ NZ, ASB, BNZ, Westpac NZ, Kiwibank · **15% IRD Form GST101A**.
+18. **India (`IN` · `INR`):** HDFC Bank, ICICI Bank, State Bank of India (SBI), Axis Bank, Kotak Mahindra · **18% CBIC GST (GSTR-1 / GSTR-3B) & TallyPrime Vouchers**.
+19. **Japan (`JP` · `JPY`):** 三菱UFJ銀行 (MUFG), 三井住友銀行 (SMBC), みずほ銀行 (Mizuho), ゆうちょ銀行, 楽天銀行 · **10% 消費税 (インボイス制度) & freee/MoneyForward/Yayoi**.
+20. **Singapore (`SG` · `SGD`):** DBS / POSB, OCBC Velocity, UOB Infinity, Aspire, Airwallex · **9% IRAS Form GST F5**.
+21. **Hong Kong (`HK` · `HKD`):** HSBC HK, Hang Seng, Bank of China (HK), Standard Chartered HK · **0% GST / HK IRD Profits Tax**.
+22. **South Korea (`KR` · `KRW`):** KB국민은행, 신한은행 (Shinhan), 우리은행 (Woori), 하나은행 (Hana), 카카오뱅크 · **10% 국세청 부가가치세 (NTS VAT) & 더존 (Douzone)**.
+23. **Malaysia & SE Asia (`MY` · `MYR`):** Maybank, CIMB, Public Bank, RHB, Hong Leong · **8% RMCD Service Tax (SST-02) & SQL Account/AutoCount**.
+24. **United Arab Emirates (`AE` · `AED`):** Emirates NBD, First Abu Dhabi Bank (FAB), ADCB, Dubai Islamic Bank, Mashreq, Wio · **5% FTA UAE VAT 201**.
+25. **Saudi Arabia (`SA` · `SAR`):** Al Rajhi Bank, SNB AlAhli, Riyad Bank, SAB, Alinma · **15% ZATCA VAT Return & Fatoora / Qoyod**.
+26. **Brazil (`BR` · `BRL`):** Itaú Unibanco, Bradesco, Nubank PJ, Banco do Brasil, Santander BR, Caixa · **18% ICMS/PIS/COFINS SPED & PIX/Boleto + ContaAzul/Omie/TOTVS**.
+27. **Mexico (`MX` · `MXN`):** BBVA México, Banorte, Santander México, Citibanamex, HSBC MX · **16% SAT IVA CFDI 4.0 & CONTPAQi/Aspel**.
+28. **Argentina (`AR` · `ARS`):** Banco Galicia, Santander AR, BBVA AR, Banco Macro, Mercado Pago · **21% ARCA / AFIP Libro IVA Digital**.
+29. **Colombia & Chile (`CO` · `COP`):** Bancolombia, Davivienda, Banco de Bogotá, Banco de Chile · **19% DIAN Formulario 300 IVA & Siigo/Alegra**.
+30. **Nigeria & Kenya (`NG` · `NGN`):** GTCO (GTBank), Zenith Bank, Access Bank, UBA, FirstBank, Moniepoint, Equity Bank, M-Pesa · **7.5% FIRS VAT & KRA 16% VAT**.
+
+## 28 Direct Client-Side ERP & Accounting Export Formats
+Excel (`.xlsx`), Statutory Tax Schedule (`.xlsx`), Audit PDF (`.pdf`), Xero (`.csv`), QuickBooks Online (`.csv`), QuickBooks Desktop (`.iif`), Sage Business Cloud (`.csv`), Sage 50 / Sage Pastel Partner (`.csv`), DATEV Buchungsstapel SKR03/04 (`.csv`), MYOB Business/AccountRight (`.csv`), Exact Online (`.csv`), FreeAgent UK (`.csv`), OFX/QFX (`.ofx`), Quicken QIF (`.qif`), Universal CSV (`.csv`), Oracle NetSuite ABSI (`.csv`), SAP Business One & S/4HANA (`.csv`), MS Dynamics 365 Business Central (`.csv`), Zoho Books & FreshBooks (`.csv`), Odoo & ERPNext (`.csv`), TallyPrime Vouchers (`.csv`), ContaAzul/Omie/TOTVS (`.csv`), CONTPAQi Pólizas (`.csv`), freee & MoneyForward Japan (`.csv`), JSON API Payload (`.json`), Google Sheets TSV (`.tsv`), 3-Month Loan Affordability Summary (`.xlsx`), and Practice White-Label Client Link (`?firm=...`).
+
+## Key Static Landing Pages by Region
+- **United States (`en-US`):**
+  - https://taxcleanza.com/convert-us-bank-statement-pdf-to-excel-quickbooks.html
+  - https://taxcleanza.com/chase-pdf-to-excel.html | https://taxcleanza.com/bank-of-america-pdf-to-csv.html | https://taxcleanza.com/wells-fargo-pdf-to-quickbooks.html | https://taxcleanza.com/amex-capital-one-citi-pdf-to-quickbooks.html | https://taxcleanza.com/mercury-relay-stripe-pdf-to-xero.html | https://taxcleanza.com/pnc-bank-pdf-to-quickbooks.html | https://taxcleanza.com/us-bank-pdf-to-excel.html | https://taxcleanza.com/truist-bank-pdf-to-excel.html | https://taxcleanza.com/irs-schedule-c-bank-statement-categorizer.html | https://taxcleanza.com/pdf-bank-statement-to-quickbooks-desktop-iif.html
+- **United Kingdom (`en-GB`):**
+  - https://taxcleanza.com/convert-uk-bank-statement-pdf-to-excel-xero-sage.html
+  - https://taxcleanza.com/barclays-pdf-to-xero.html | https://taxcleanza.com/hsbc-uk-pdf-to-excel.html | https://taxcleanza.com/lloyds-natwest-santander-pdf-to-excel.html | https://taxcleanza.com/revolut-wise-monzo-pdf-to-xero.html | https://taxcleanza.com/hmrc-mtd-vat-excel-bridging.html
+- **Australia, New Zealand & Canada (`en-AU`, `en-NZ`, `en-CA`):**
+  - https://taxcleanza.com/commbank-westpac-anz-nab-pdf-to-xero.html | https://taxcleanza.com/westpac-anz-nab-pdf-to-myob-xero.html | https://taxcleanza.com/anz-new-zealand-pdf-to-xero.html | https://taxcleanza.com/rbc-td-scotiabank-bmo-pdf-to-excel.html | https://taxcleanza.com/td-scotiabank-bmo-cibc-pdf-to-quickbooks.html
+- **Germany, Europe, Asia, Middle East & LatAm:**
+  - https://taxcleanza.com/sparkasse-deutsche-bank-pdf-zu-datev-skr03.html | https://taxcleanza.com/ing-bankafschrift-pdf-naar-exact-online-excel.html | https://taxcleanza.com/bnp-paribas-releve-pdf-en-excel-fec.html | https://taxcleanza.com/hdfc-icici-sbi-pdf-to-tally-gst.html | https://taxcleanza.com/emirates-nbd-fab-adcb-pdf-to-excel-vat.html | https://taxcleanza.com/mufg-smbc-mizuho-pdf-to-freee-excel.html | https://taxcleanza.com/itau-bradesco-nubank-pdf-para-contaazul.html | https://taxcleanza.com/bbva-banorte-santander-mexico-pdf-a-contpaqi.html
+- **South Africa (`en-ZA`, `af`):**
+  - https://taxcleanza.com/fnb-pdf-to-excel.html | https://taxcleanza.com/capitec-pdf-to-excel.html | https://taxcleanza.com/standard-bank-pdf-to-csv.html | https://taxcleanza.com/absa-pdf-to-excel.html | https://taxcleanza.com/nedbank-pdf-to-pastel.html | https://taxcleanza.com/investec-pdf-to-excel.html | https://taxcleanza.com/sars-vat201-excel-calculator.html
+
+## Technical Troubleshooting Guides & Bank Import Fixes
+- **Guides Knowledge Base Hub:** https://taxcleanza.com/guides/
+- **Capitec PDF Statement to Sage Pastel & Xero Fix:** https://taxcleanza.com/guides/convert-capitec-pdf-to-sage-pastel.html (Solves multi-row description scrambling and 3-column CSV import).
+- **FNB CSV Date Format Error Fix:** https://taxcleanza.com/guides/fnb-csv-date-format-error-sage-pastel.html (Fixes YYYY/MM/DD to DD/MM/YYYY date crashes and 3-line metadata stripping).
+- **Standard Bank CSV Layout Fix:** https://taxcleanza.com/guides/standard-bank-csv-format-sage-business-cloud.html (Removes 4-line metadata blocks and leading date apostrophes).
+- **Nedbank Password-Protected Statement Converter:** https://taxcleanza.com/guides/convert-nedbank-pdf-statement-to-csv-xero.html (In-browser decryption of ID/CK password-locked statements).
+- **Absa Bank CSV Reverse Order Fix:** https://taxcleanza.com/guides/absa-csv-reverse-order-sage-pastel.html (Reverses newest-first transactions to oldest-first for cashbook balance integrity).
+- **Sage Pastel Partner Bank Statement CSV Specification:** https://taxcleanza.com/guides/sage-pastel-bank-statement-csv-specification.html (Official 3-column statement and 10-column batch journal layout rules).
+- **POPIA Section 72 Compliance for Accounting Practices:** https://taxcleanza.com/guides/popia-compliance-bank-statements-accounting-south-africa.html (Legal risks of offshore cloud converters under South African privacy law).
+- **SARS VAT201 eFiling Bank Reconciliation Guide:** https://taxcleanza.com/guides/sars-vat201-efiling-bank-reconciliation-guide.html (Fixes 15/115 tax fraction, zero-rated fuel, entertainment disallowance, Section 16(2) invoice compliance).
+- **Discovery Bank PDF Statement to Excel & Xero:** https://taxcleanza.com/guides/convert-discovery-bank-pdf-statement-to-excel-xero.html (Stripping Vitality points, foreign currency consolidation, daily interest lines).
+- **Chase PDF Statement to QuickBooks Online & Desktop IIF:** https://taxcleanza.com/guides/convert-chase-pdf-statement-to-quickbooks-online-iif.html (MM/DD/YYYY dates, QBO 3-col CSV, QuickBooks Desktop .IIF batch journal with check numbers).
+- **Barclays PDF Statement to Xero & FreeAgent:** https://taxcleanza.com/guides/convert-barclays-pdf-statement-to-xero-freeagent.html (DD/MM/YYYY, BGC/Faster Payments sub-lines, FreeAgent 3-col CSV, HMRC MTD Box 4 alignment).
+- **Bank of America PDF Statement to QuickBooks Online & Excel:** https://taxcleanza.com/guides/convert-bank-of-america-pdf-statement-to-quickbooks-excel.html (Resolves check table splits, multi-line Zelle/ACH descriptions, MM/DD/YYYY dates).
+- **HSBC UK PDF Statement to Xero & Sage:** https://taxcleanza.com/guides/convert-hsbc-uk-pdf-statement-to-xero-sage.html (Fixes trailing minus signs, transaction codes, mid-table fee summaries, HMRC MTD digital link).
+- **CommBank Australia PDF Statement to Xero & MYOB:** https://taxcleanza.com/guides/convert-commbank-pdf-statement-to-xero-myob.html (Solves multi-line PayID descriptions, pending transaction bleeds, ATO BAS 10% GST schedule).
+
+## Contact & Legal
+- **Website:** https://taxcleanza.com
+- **Privacy Policy:** https://taxcleanza.com/privacy.html
+- **Terms of Service:** https://taxcleanza.com/terms.html
+- **Support & Partnerships:** mailto:sales@taxcleanza.com
+- **Official YouTube Channel & Video Demo:** https://www.youtube.com/@TaxCleanZA | https://www.youtube.com/watch?v=CuL8dlkcrHs

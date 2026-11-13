@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TaxClean ZA — Official User Manual & Quick-Start Guide</title>
+<style>
+  :root {
+    --primary: #0284c7;
+    --primary-dark: #0369a1;
+    --bg-dark: #0f172a;
+    --card-bg: #1e293b;
+    --border: #334155;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --accent-green: #10b981;
+    --accent-emerald: #059669;
+    --accent-amber: #f59e0b;
+    --accent-purple: #8b5cf6;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg-dark);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 24px;
+  }
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  header {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+    margin-bottom: 32px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: rgba(2, 132, 199, 0.2);
+    color: #38bdf8;
+    border: 1px solid #0284c7;
+    margin-bottom: 12px;
+  }
+  h1 { font-size: 28px; font-weight: 800; color: #ffffff; margin-bottom: 8px; }
+  .subtitle { font-size: 15px; color: var(--text-muted); }
+  nav.toc {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 32px;
+  }
+  nav.toc h3 { font-size: 16px; margin-bottom: 12px; color: #38bdf8; }
+  nav.toc ul { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 8px; }
+  nav.toc a { color: var(--text); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+  nav.toc a:hover { color: #38bdf8; text-decoration: underline; }
+  section {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  }
+  h2 { font-size: 20px; font-weight: 700; color: #ffffff; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+  h3 { font-size: 16px; font-weight: 600; color: #38bdf8; margin: 18px 0 8px 0; }
+  p { font-size: 14px; color: #cbd5e1; margin-bottom: 12px; }
+  ul, ol { margin-left: 20px; margin-bottom: 14px; font-size: 14px; color: #cbd5e1; }
+  li { margin-bottom: 6px; }
+  .tip-box {
+    background: rgba(16, 185, 129, 0.1);
+    border-left: 4px solid var(--accent-green);
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    margin: 14px 0;
+    font-size: 13px;
+    color: #a7f3d0;
+  }
+  .warning-box {
+    background: rgba(245, 158, 11, 0.1);
+    border-left: 4px solid var(--accent-amber);
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    margin: 14px 0;
+    font-size: 13px;
+    color: #fde68a;
+  }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }
+  th, td { padding: 10px 12px; text-align: left; border: 1px solid var(--border); }
+  th { background: #0f172a; color: #38bdf8; font-weight: 600; }
+  tr:nth-child(even) { background: rgba(15, 23, 42, 0.4); }
+  kbd {
+    background: #0f172a;
+    border: 1px solid #475569;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-family: monospace;
+    color: #38bdf8;
+  }
+  footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <span class="badge">Official Documentation</span>
+    <h1>TaxClean ZA — User Manual & Operations Guide</h1>
+    <p class="subtitle">Commercial Forensic South African Bank Statement & Receipt Reconciliation Engine (v2.3)</p>
+    <p style="font-size:12px; color:#64748b; margin-top:8px;">Aligned with SARS Tax Administration Act (TAA) Sec 29/30 record-keeping workflows, VAT Act 89/1991, POPIA Act 4/2013, Sage Pastel & ERPs.</p>
+  </header>
+
+  <nav class="toc">
+    <h3>📖 Table of Contents</h3>
+    <ul>
+      <li><a href="#installation">1. Installation & Windows Setup</a></li>
+      <li><a href="#ai-setup">2. Free Google AI Key (1-Click)</a></li>
+      <li><a href="#importing">3. Simultaneous Multi-Document Import</a></li>
+      <li><a href="#coa-manager">4. Chart of Accounts Manager (Add / Edit / Delete GLs)</a></li>
+      <li><a href="#continuity">5. Multi-Month Stacking (Append)</a></li>
+      <li><a href="#receipts">6. Shoebox Receipt Matching</a></li>
+      <li><a href="#vat201">7. SARS VAT201 eFiling Card</a></li>
+      <li><a href="#splitting">8. Multi-Account Transaction Splits</a></li>
+      <li><a href="#exporting">9. Exporting to Pastel, Xero & ERPs</a></li>
+      <li><a href="#audit-cert">10. SARS Sec 29 Audit Locking</a></li>
+      <li><a href="#shortcuts">11. Keyboard Shortcuts Reference</a></li>
+    </ul>
+  </nav>
+
+  <!-- 1. INSTALLATION -->
+  <section id="installation">
+    <h2>1. Installation & Windows Setup</h2>
+    <p>TaxClean ZA is distributed officially through the <strong>Microsoft Store</strong> (Store ID: <code>9NQKZNK24JD6</code>) as a sandboxed Windows 10/11 MSIX application.</p>
+    <ol>
+      <li>Open the <strong>Microsoft Store</strong> on Windows 10 or Windows 11 and search for <strong>TaxClean - ZA</strong> (or click the official Store link on <a href="https://taxcleanza.com" style="color:#38bdf8;">taxcleanza.com</a>).</li>
+      <li>Click <strong>Get / Install</strong>. Windows automatically verifies the Microsoft Store digital signature and installs the application into an isolated container with automatic updates.</li>
+      <li>Click <strong>Open</strong> (or launch <strong>TaxClean - ZA</strong> from your Start Menu). Press <kbd>F1</kbd> or click <strong>[ 📖 Manual / How to Use ]</strong> above the transaction table at any time to open the built-in interactive guide.</li>
+    </ol>
+  </section>
+
+  <!-- 2. AI SETUP -->
+  <section id="ai-setup">
+    <h2>2. Free Google AI Studio Key Setup (1-Click Sentinel)</h2>
+    <p>TaxClean ZA operates 100% locally and offline by default. For rare, difficult, or handwritten scanned documents, it includes an optional <strong>Google Gemini Flash Micro-AI Resolver</strong> where you can connect your own free Google AI Studio key.</p>
+    <ol>
+      <li>In the top-left corner of the app, click the <strong>[ 🔑 AI Auto-Key ]</strong> button.</li>
+      <li>Click <strong>"Get Free Key (Opens Google AI Studio)"</strong>.</li>
+      <li>Sign in with your Google account, click <em>Create API Key</em>, and copy the key to your clipboard.</li>
+      <li><strong>Automatic Sentinel:</strong> TaxClean's background sentinel temporarily monitors your clipboard for up to 90 seconds to detect the copied <code>AIza...</code> key, verifies it, encrypts it via Windows DPAPI, and closes the wizard with zero manual typing!</li>
+    </ol>
+  </section>
+
+  <!-- 3. IMPORTING -->
+  <section id="importing">
+    <h2>3. Simultaneous Multi-Document Import (Cent-Zero Reconciliation)</h2>
+    <p>TaxClean supports all South African retail and commercial banks AND lets you select and import <strong>multiple documents at the exact same time</strong>:</p>
+    <ul>
+      <li><strong>First National Bank (FNB):</strong> Cheque / Current, Credit Card, and Easy Accounts.</li>
+      <li><strong>Capitec Bank:</strong> Savings & Mercantile Business Accounts.</li>
+      <li><strong>Standard Bank:</strong> Current, Business & Credit.</li>
+      <li><strong>Nedbank & Absa:</strong> Enterprise & Commercial formats.</li>
+      <li><strong>Discovery Bank, Investec & TymeBank:</strong> Modern digital statement layouts + scanned till slips & PDF invoices.</li>
+    </ul>
+    <h3>How to Import One or Multiple Documents Simultaneously:</h3>
+    <ol>
+      <li>Click <strong>[ ⚡ Import Docs ]</strong> in the top navigation bar (or press <kbd>Ctrl+O</kbd>).</li>
+      <li>In the file picker, hold <kbd>Ctrl</kbd> or <kbd>Shift</kbd> (or drag a selection box) to select <strong>as many PDF bank statements, CSVs, and scanned till slips/invoices as you want at once</strong>, then click <strong>Open</strong>.</li>
+      <li>TaxClean processes every selected file in a single batch, automatically sorts all transactions chronologically, removes overlapping duplicate rows across files via the <em>Duplicate Shield</em>, and links opening/closing balances across consecutive statements.</li>
+      <li>Check the <strong>Audit Reconciliation Bar</strong>:
+        <div class="tip-box">
+          <strong>Mathematical Proof of Balance:</strong><br>
+          Opening Balance + Total Receipts - Total Payments = Closing Balance.<br>
+          When the variance badge shows <strong style="color:#10b981;">Δ R 0.00</strong> in green, your batch is mathematically reconciled to the cent!
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- 4. CHART OF ACCOUNTS MANAGER -->
+  <section id="coa-manager">
+    <h2>4. Chart of Accounts Manager (Add, Edit & Delete GL Accounts)</h2>
+    <p>Customize your General Ledger codes, account names, default SARS VAT rules, and auto-matching keywords to match your exact Sage Pastel, Xero, or custom practice Chart of Accounts.</p>
+    <ol>
+      <li>Click the teal <strong>[ 📋 Chart of Accounts ]</strong> button in the filter bar directly above the transaction table (or press <kbd>Alt+C</kbd>, or open <strong>🛠️ Tools ▾ &rarr; 📋 Chart of Accounts Manager</strong>).</li>
+      <li><strong>➕ Add a New GL Account:</strong> Enter the <strong>GL Code</strong> (e.g., <code>4650/000</code>), <strong>Account Name</strong> (e.g., <code>Courier &amp; Freight</code>), <strong>Default VAT Rule</strong> (<code>Standard 15%</code>, <code>Zero-Rated 0%</code>, <code>Exempt</code>, or <code>Out of Scope</code>), <strong>Ledger Type</strong>, and optional comma-separated <strong>Auto-Match Keywords</strong> (e.g., <code>THE COURIER GUY, ARAMEX, DHL</code>), then click <strong>[ ➕ Add / Save GL Account ]</strong>.</li>
+      <li><strong>✏️ Edit an Existing Account:</strong> Click any account row in the Chart of Accounts table to load its details into the editor, modify any field, and click <strong>[ ➕ Add / Save GL Account ]</strong> to update it immediately across the entire app.</li>
+      <li><strong>🗑️ Delete GL Accounts:</strong> Select one or more accounts in the list (hold <kbd>Ctrl</kbd> or <kbd>Shift</kbd> for multi-select) and click <strong>[ 🗑️ Delete Selected Account(s) ]</strong> (or press the <kbd>Delete</kbd> key). <em>Note: The system Suspense Account (<code>9999/000</code>) is protected so unallocated rows always have a safe fallback.</em></li>
+      <li><strong>📂 Import CSV or Reset:</strong> Use <strong>[ 📂 Import COA from CSV ]</strong> to bulk-import a client's Chart of Accounts from Excel/Pastel/Xero, or click <strong>[ 🔄 Reset to SA Default COA ]</strong> at any time.</li>
+    </ol>
+  </section>
+
+  <!-- 5. CONTINUITY STACKING -->
+  <section id="continuity">
+    <h2>5. Multi-Month Stacking for SARS Bi-Monthly VAT201</h2>
+    <p>South African VAT vendors file returns bi-monthly (every 2 months). You can either select all months at once via <strong>[ ⚡ Import Docs ]</strong>, or stack additional statements onto an existing open session at any time:</p>
+    <ol>
+      <li>Click <strong>[ ➕ Append ]</strong> (or press <kbd>Alt+A</kbd>) in the top navigation bar.</li>
+      <li>Select <strong>one or multiple</strong> additional monthly statements (hold <kbd>Ctrl</kbd> or <kbd>Shift</kbd> to pick multiple files).</li>
+      <li><strong>The Lockstep Continuity Check:</strong> TaxClean verifies that Month 1 Closing Balance matches Month 2 Opening Balance to the exact cent.</li>
+      <li>If there is an overlap, the <em>Duplicate Shield</em> automatically filters out duplicated transactions, giving you a seamless, unified multi-month ledger ready for eFiling.</li>
+    </ol>
+  </section>
+
+  <!-- 6. RECEIPT MATCHER -->
+  <section id="receipts">
+    <h2>6. "Shoebox" Receipt-to-Bank Auto-Matcher</h2>
+    <p>No more manually hunting through piles of paper slips to match bank debit transactions.</p>
+    <ol>
+      <li>Click <strong>[ 📎 Match Receipts ]</strong> in the navbar (or press <kbd>Alt+M</kbd>).</li>
+      <li>Select the folder or files containing your client's scanned slips, till receipts, and PDF tax invoices (supports JPG, PNG, WEBP, and PDF).</li>
+      <li>The built-in local OCR and Receipt Matcher reads invoice dates, supplier VAT numbers, and gross totals.</li>
+      <li>TaxClean automatically pairs each slip with its matching bank payment row and attaches a <code>📎</code> paperclip badge.</li>
+      <li><strong>Audit Verification:</strong> Right-click any row in the ledger and select <em>"View Attached Receipt / Slip"</em> to open and inspect the original source document immediately.</li>
+      <li><strong>Audit Risk Alert:</strong> The summary tab highlights any outflow &gt; R 50 that lacks a supporting receipt, helping your practice review documentary requirements under SARS Section 16(2).</li>
+    </ol>
+  </section>
+
+  <!-- 7. VAT201 CARD -->
+  <section id="vat201">
+    <h2>7. SARS VAT201 eFiling Box Summary Card</h2>
+    <p>Generate reconciled SARS VAT201 working paper figures in 1 click:</p>
+    <ol>
+      <li>Click <strong>[ 🏛️ VAT201 ]</strong> in the navbar (or press <kbd>Alt+V</kbd>).</li>
+      <li>The modal displays the reconciled SARS eFiling working paper figures:
+        <ul>
+          <li><strong>Box 1:</strong> Standard Rated Supplies (Inclusive of 15% VAT).</li>
+          <li><strong>Box 4 / 13:</strong> Output Tax on Standard Rated Supplies.</li>
+          <li><strong>Box 2:</strong> Zero-Rated Supplies (Fuel Levy, Exports, Basic Foods).</li>
+          <li><strong>Box 3:</strong> Exempt Supplies (Interest & Pure Financial Services; excludes standard 15% bank service fees).</li>
+          <li><strong>Box 15:</strong> Claimable Standard Rated Input Tax on Other Goods &amp; Services.</li>
+          <li><strong>Box 19:</strong> Total Input Tax Deductions.</li>
+          <li><strong>Box 20:</strong> Net VAT Payable or Refund Due.</li>
+        </ul>
+      </li>
+      <li>Click the <strong>[ 📋 Copy ]</strong> button next to any box to copy the number directly to your clipboard for pasting into SARS eFiling after practitioner review.</li>
+    </ol>
+  </section>
+
+  <!-- 8. SPLITTING -->
+  <section id="splitting">
+    <h2>8. Multi-Account Transaction Splits</h2>
+    <p>Split a single bank outflow across multiple general ledger accounts (e.g., Makro purchases split between office consumables and owner drawings).</p>
+    <ol>
+      <li>Select the transaction in the ledger grid.</li>
+      <li>Press <kbd>Alt+S</kbd> (or click <em>Tools &gt; Split Selected Transaction</em>).</li>
+      <li>Click <strong>[ ➕ Add Split Line ]</strong> to subdivide the amount.</li>
+      <li>Or select a 1-Click Preset:
+        <ul>
+          <li><strong>50 / 50 Split</strong></li>
+          <li><strong>60 / 40 Split</strong></li>
+          <li><strong>Payroll Settlement Split:</strong> Separates bulk salary withdrawals into Net Wages, PAYE Withholding, and statutory-capped UIF Liability.</li>
+        </ul>
+      </li>
+      <li>The mathematical validation lock guarantees total child lines equal parent amount to R 0.00 before saving.</li>
+    </ol>
+  </section>
+
+  <!-- 9. EXPORTING -->
+  <section id="exporting">
+    <h2>9. Exporting to Accounting Software (Pastel, Xero, ERPs)</h2>
+    <p>Click <strong>[ 💾 Export ]</strong> (or press <kbd>Ctrl+E</kbd>) to launch the Pre-Flight Export Validator.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Accounting System</th>
+          <th>Format Specifications</th>
+          <th>Import Instructions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Sage Pastel Partner</strong></td>
+          <td>Official 10-column ASCII Cashbook layout. Strict <strong>no-header</strong> rule, standard 7-digit account codes (<code>1000000</code>), Pastel tax indices (<code>1</code> = 15%, <code>2</code> = 0%, <code>0</code> = Exempt).</td>
+          <td>Open Pastel &gt; <em>Process &gt; Cash Books</em> &gt; Select Bank &gt; <em>Batch &gt; Import</em>.</td>
+        </tr>
+        <tr>
+          <td><strong>Sage Business Cloud (Sage One)</strong></td>
+          <td>Official 3-column CSV: <code>Date (DD/MM/YYYY)</code>, <code>Description</code>, <code>Amount</code> (negative = payments, positive = receipts).</td>
+          <td>Open Sage One &gt; <em>Banking &gt; Upload a Statement</em> &gt; Select CSV file.</td>
+        </tr>
+        <tr>
+          <td><strong>Xero</strong></td>
+          <td>Official 6-column bank feed CSV: <code>Date</code>, <code>Amount</code>, <code>Payee</code>, <code>Description</code>, <code>Reference</code>, <code>Check Number</code>.</td>
+          <td>Open Xero &gt; <em>Accounting &gt; Bank Accounts &gt; Manage Account &gt; Import a Statement</em>.</td>
+        </tr>
+        <tr>
+          <td><strong>QuickBooks Online</strong></td>
+          <td>Official 3-column CSV: <code>Date</code>, <code>Description</code>, <code>Amount</code>.</td>
+          <td>Open QuickBooks &gt; <em>Banking &gt; Link Account &gt; Upload from file</em>.</td>
+        </tr>
+        <tr>
+          <td><strong>SARS Excel Workpaper</strong></td>
+          <td>Multi-tab formatted Excel workbook containing VAT201 return schedule and detailed cashbook audit trail.</td>
+          <td>Directly printable / attachable for SARS tax audits and annual financial statements.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 10. AUDIT CERTIFICATE -->
+  <section id="audit-cert">
+    <h2>10. SARS Section 29 Audit Batch Locking</h2>
+    <p>When bookkeeping write-ups are finalized, you can freeze the batch to prevent accidental modifications:</p>
+    <ol>
+      <li>Click <em>Tools &gt; 1-Click Lock Batch &amp; Integrity Report</em> (or press <kbd>Alt+L</kbd>).</li>
+      <li>TaxClean calculates a cryptographic <strong>SHA-256 digital fingerprint</strong> across all transactions and balances.</li>
+      <li>The session is locked against further edits.</li>
+      <li>Generates a printable <strong>SARS TAA Section 29 Electronic Record Integrity Report</strong> documenting reviewer details, bank reconciliation proof, and SHA-256 hash verification.</li>
+    </ol>
+  </section>
+
+  <!-- 11. SHORTCUTS -->
+  <section id="shortcuts">
+    <h2>11. Keyboard Shortcuts Reference</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Shortcut</th>
+          <th>Action</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><kbd>F1</kbd></td><td>User Manual</td><td>Opens the in-app User Manual &amp; How-To Guide</td></tr>
+        <tr><td><kbd>Alt + C</kbd></td><td>Chart of Accounts</td><td>Opens Chart of Accounts Manager (Add, Edit &amp; Delete GLs)</td></tr>
+        <tr><td><kbd>Ctrl + O</kbd></td><td>Import Docs</td><td>Select &amp; import one or multiple PDFs, CSVs, and slips at once</td></tr>
+        <tr><td><kbd>Alt + A</kbd></td><td>Append Docs</td><td>Stacks one or multiple additional statements onto the batch</td></tr>
+        <tr><td><kbd>Alt + M</kbd></td><td>Match Receipts</td><td>Opens Shoebox Receipt-to-Bank Auto-Matcher</td></tr>
+        <tr><td><kbd>Alt + V</kbd></td><td>VAT201 Card</td><td>Opens SARS eFiling Box summary modal</td></tr>
+        <tr><td><kbd>Alt + S</kbd></td><td>Split Transaction</td><td>Subdivides selected transaction into multiple accounts</td></tr>
+        <tr><td><kbd>Alt + L</kbd></td><td>Lock Batch</td><td>Locks session and generates Section 29 certificate</td></tr>
+        <tr><td><kbd>Ctrl + E</kbd></td><td>Export Batch</td><td>Launches Pre-Flight Validator and export menu</td></tr>
+        <tr><td><kbd>Ctrl + Z</kbd></td><td>Undo</td><td>Reverts last transaction edit or split</td></tr>
+        <tr><td><kbd>Ctrl + Y</kbd></td><td>Redo</td><td>Re-applies reverted action</td></tr>
+        <tr><td><kbd>Ctrl + F</kbd></td><td>Search</td><td>Jumps directly to search / filter box</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer>
+    <p>© 2026 TaxClean Technologies (Pty) Ltd. All Rights Reserved.</p>
+    <p>Professional Accounting Automation for South African Bookkeepers & Enterprises.</p>
+  </footer>
+
+</div>
+
+</body>
+</html>

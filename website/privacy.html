@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy &amp; Data Architecture | TaxClean</title>
+<meta name="description" content="TaxClean Privacy Policy (POPIA, GDPR, UK GDPR &amp; GLBA): local browser RAM PDF parsing, WebAssembly OCR, opt-in Cloud AI fallback &amp; Yoco checkout.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://taxcleanza.com/privacy.html">
+<link rel="icon" type="image/png" href="/favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Privacy Policy & Local-First Data Architecture | TaxClean">
+<meta property="og:description" content="How TaxClean processes bank statements locally in browser RAM by default, plus full disclosures for optional Cloud AI OCR, Yoco payments, and POPIA/GDPR rights.">
+<meta property="og:url" content="https://taxcleanza.com/privacy.html">
+<meta property="og:image" content="https://taxcleanza.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Privacy Policy & Data Architecture | TaxClean",
+  "url": "https://taxcleanza.com/privacy.html",
+  "publisher": {
+    "@type": "Organization",
+    "name": "TaxClean Technologies South Africa",
+    "url": "https://taxcleanza.com"
+  }
+}
+</script>
+<style>
+  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: #0f172a; background: #f8fafc; line-height: 1.65; margin: 0; padding: 0; }
+  nav { background: #090d16; padding: 18px 24px; border-bottom: 1px solid rgba(255,255,255,.08); }
+  nav .wrap { max-width: 860px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+  nav a { color: #10b981; font-weight: 700; text-decoration: none; font-size: 14px; }
+  .container { max-width: 860px; margin: 40px auto; background: #fff; padding: 44px; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: 0 10px 25px rgba(0,0,0,0.03); }
+  h1 { font-size: 28px; font-weight: 900; margin-bottom: 8px; color: #090d16; letter-spacing: -0.5px; }
+  h2 { font-size: 18px; font-weight: 800; margin-top: 30px; margin-bottom: 10px; color: #0f172a; }
+  p, li { font-size: 14.5px; color: #334155; margin-bottom: 10px; }
+  ul { padding-left: 20px; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0 20px; font-size: 13.5px; }
+  th, td { border: 1px solid #e2e8f0; padding: 10px 12px; text-align: left; vertical-align: top; }
+  th { background: #f1f5f9; font-weight: 700; color: #0f172a; }
+  .badge { display: inline-block; background: #ecfdf5; color: #059669; font-weight: 800; font-size: 12px; padding: 4px 12px; border-radius: 99px; margin-bottom: 14px; border: 1px solid #a7f3d0; }
+  .footer-links { margin-top: 36px; padding-top: 20px; border-top: 1px solid #e2e8f0; font-size: 13px; color: #64748b; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  .footer-links a { color: #059669; text-decoration: none; font-weight: 600; }
+  code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-size: 13px; }
+  @media (max-width: 640px) {
+    nav .wrap { flex-wrap: wrap; gap: 10px; }
+    .container { margin: 16px 12px; padding: 24px 18px; border-radius: 14px; }
+    h1 { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+  <nav>
+    <div class="wrap">
+      <a href="/">&larr; Back to TaxClean Converter</a>
+      <a href="/terms.html">Terms of Service &amp; EULA</a>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="badge">POPIA (Act 4 of 2013) &bull; EU/UK GDPR &bull; US GLBA Privacy Notice</div>
+    <h1>Privacy Policy &amp; Data Architecture</h1>
+    <p><strong>Last Updated:</strong> November 2026 &nbsp;|&nbsp; <strong>Operator:</strong> TaxClean Technologies South Africa (<a href="https://taxcleanza.com">https://taxcleanza.com</a>)</p>
+
+    <p>This Privacy Policy governs both the <strong>TaxClean Web Application</strong> (<code>https://taxcleanza.com</code> and its regional pages) and the <strong>TaxClean Desktop Application</strong> (Windows &amp; macOS). We believe in complete technical transparency regarding what stays inside your device memory and what network requests occur when you use optional features.</p>
+
+    <h2>1. Three-Tier Bank Statement Processing Architecture</h2>
+    <ul>
+      <li><strong>Tier 1 — Default Local Browser &amp; Desktop RAM Parsing (0 Bytes of PDF Uploaded):</strong> When you select or drag-and-drop a digital PDF bank statement into TaxClean, text extraction (via client-side <code>pdf.js</code>), running-balance reconciliation, tax categorization, and Excel/CSV/ERP file generation (via client-side <code>SheetJS</code>) execute <strong>100% locally inside your web browser's volatile memory (RAM)</strong> or desktop workstation. When the local parser recognizes your statement layout, <strong>zero bytes of your PDF, account numbers, or transaction descriptions are uploaded to any server</strong>.</li>
+      <li><strong>Tier 2 — Local In-Browser WebAssembly OCR (0 Bytes of PDF Uploaded):</strong> If a PDF contains scanned images or outlined vector fonts with no embedded text layer, TaxClean first executes client-side optical character recognition (<code>Tesseract.js</code> WebAssembly on Web, or Windows Local OCR on Desktop) directly inside your device memory without transmitting your statement to our servers.</li>
+      <li><strong>Tier 3 — Strictly Opt-In Cloud AI OCR Fallback (Google Gemini API):</strong> If a complex scan, camera photo, or unstructured statement cannot be parsed locally in Tier 1 or Tier 2, TaxClean displays an explicit <strong>Opt-In Consent Prompt</strong> before any statement data leaves your device. <strong>Only if you explicitly click to approve Cloud AI OCR</strong> (or initiate a live AI Vision camera scan) will the extracted text (up to 45,000 characters) or up to 2 compressed page images and filename be transmitted over HTTPS (TLS 1.3) to our Cloudflare Worker endpoint (<code>/api/ai-extract</code>) and forwarded to the <strong>Google Gemini API</strong> (<code>generativelanguage.googleapis.com</code>, operated by Google LLC in the United States/global edge) solely to return structured transaction rows. TaxClean does <strong>not</strong> log, store, or retain statement contents in Cloudflare KV or any database. Processing by Google LLC is subject to the <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener">Google Gemini API Terms</a>. Under POPIA Section 72 and EU/UK GDPR Chapter V (Art. 49(1)(a)), this cross-border transfer occurs strictly upon your explicit per-file consent.</li>
+    </ul>
+
+    <h2>2. Billing, Subscriptions &amp; Payment Processors (Yoco &amp; PayFast)</h2>
+    <p>When you purchase a 7-Day Pass, Pro Unlimited monthly plan, Practice &amp; Firm plan, or Desktop annual license:</p>
+    <ul>
+      <li><strong>Payment Gateway:</strong> Web checkouts are processed via <strong>Yoco Technologies (Pty) Ltd</strong> (<code>payments.yoco.com</code>, settled in South African Rand, ZAR, at your card issuer's exchange rate). Desktop licenses may also be settled via EFT or <strong>PayFast (Pty) Ltd</strong>. TaxClean never collects, views, or stores your payment card numbers, CVV, or banking PINs.</li>
+      <li><strong>Subscription Records Stored in Cloudflare KV:</strong> To verify your paid access across sessions, we store a minimal subscription record in encrypted Cloudflare Workers KV (<code>sub_&lt;email&gt;</code> and <code>chk_&lt;orderRef&gt;</code>) containing your <strong>Work Email Address, Company Name (if provided), Plan SKU, Order Reference, Checkout ID, Amount Paid, and Expiry Timestamp</strong>. In Cloudflare KV, <code>chk_&lt;orderRef&gt;</code> checkout verification records expire automatically after 30 days, 7-Day Pass <code>sub_&lt;email&gt;</code> records expire after 7 days, and monthly subscription <code>sub_&lt;email&gt;</code> records expire after 35 days per billing cycle. Official commercial Tax Invoices are generated client-side in your browser so you can download and retain them for the 5-year statutory period required under Section 29 of the South African Tax Administration Act 28 of 2011.</li>
+    </ul>
+
+    <h2>3. Anonymous Conversion Telemetry, Third-Party CDNs &amp; Advertising</h2>
+    <p>To keep the web application fast and fund free-tier access, the website uses the following network services:</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Service / Endpoint</th>
+          <th>Data Transmitted</th>
+          <th>Purpose &amp; Opt-Out Control</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Conversion Counter</strong><br><code>/api/telemetry/conversion</code></td>
+          <td>Aggregate JSON only: <code>{region, format, pages}</code>. <strong>Zero</strong> filenames, bank names, amounts, or statement text.</td>
+          <td>Counts total pages and ERP formats converted across regions. You can disable telemetry anytime by clicking <strong>"Local-Only (Decline Ads &amp; Telemetry)"</strong> in the privacy bar.</td>
+        </tr>
+        <tr>
+          <td><strong>Static Library &amp; OCR CDNs</strong><br><code>cdnjs.cloudflare.com</code>, <code>cdn.jsdelivr.net</code>, <code>tessdata.projectnaptha.com</code>, <code>fonts.googleapis.com</code>, <code>fonts.gstatic.com</code></td>
+          <td>Standard HTTP asset request (browser IP address &amp; User-Agent).</td>
+          <td>Delivers open-source client-side parsing libraries (<code>pdf.js</code>, <code>xlsx.full.min.js</code>, <code>tesseract.js</code>), WebAssembly OCR language traineddata (loaded from <code>tessdata.projectnaptha.com</code> only when Tier 2 local OCR runs), and UI fonts (<code>Inter</code>, <code>JetBrains Mono</code>).</td>
+        </tr>
+        <tr>
+          <td><strong>Cloudflare Edge &amp; Web Analytics</strong><br><code>cloudflareinsights.com</code></td>
+          <td>First-party functional cookies (<code>tc_geo</code>, <code>tc_lang</code>, 24h expiry) and anonymous performance metrics.</td>
+          <td>Routes requests through the nearest Cloudflare edge node and pre-selects your country currency/language.</td>
+        </tr>
+        <tr>
+          <td><strong>Google AdSense (Consent-Gated)</strong><br><code>pagead2.googlesyndication.com</code></td>
+          <td>Standard advertising cookies and page URL metadata (never bank statement contents).</td>
+          <td><strong>Not loaded on initial page boot.</strong> The AdSense script is dynamically loaded <strong>only if you click "Accept All"</strong> on the privacy consent bar (and is never loaded if you choose "Local-Only (Decline Ads &amp; Telemetry)" or use a paid plan). You may also manage preferences via <a href="https://adssettings.google.com" target="_blank" rel="noopener">Google Ad Settings</a>.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>4. Browser <code>localStorage</code> Keys</h2>
+    <p>TaxClean stores your preferences locally inside your own browser's <code>localStorage</code> (including <code>tcza_custom_categories</code>, <code>tcza_vendor_rules</code>, <code>tcza_free_used</code>, <code>tcza_region_override</code>, <code>tcza_lang_override</code>, and your signed <code>tcza_pro_token</code> / <code>tcza_order_ref</code>). You can wipe all saved browser data with one click using the <strong>"Clear Saved Browser Data"</strong> button in the Privacy &amp; Terms modal.</p>
+
+    <h2>5. Designated Information Officer (POPIA Sec 55 &amp; ECTA Sec 43)</h2>
+    <p>In accordance with Section 55 of the Protection of Personal Information Act (Act 4 of 2013) and Section 43 of the Electronic Communications and Transactions Act (Act 25 of 2002):</p>
+    <ul>
+      <li><strong>Information Officer &amp; Founder:</strong> Nikhar Bechan</li>
+      <li><strong>Entity:</strong> TaxClean Technologies South Africa</li>
+      <li><strong>Physical Address:</strong> Port Shepstone, KwaZulu-Natal, 4240, Republic of South Africa</li>
+      <li><strong>Official Privacy &amp; Support Email:</strong> <a href="mailto:sales@taxcleanza.com">sales@taxcleanza.com</a></li>
+    </ul>
+
+    <h2>6. Your Rights Under POPIA, GDPR, UK GDPR &amp; CCPA</h2>
+    <ul>
+      <li><strong>Access, Correction &amp; Erasure:</strong> You may request a copy of, correction to, or deletion of your subscriber email/order record at any time by emailing <a href="mailto:sales@taxcleanza.com">sales@taxcleanza.com</a>.</li>
+      <li><strong>Withdrawal of Consent:</strong> You can decline optional Cloud AI OCR on any file, and you can disable non-essential telemetry/ads via the privacy banner or by clearing browser storage.</li>
+      <li><strong>Supervisory Authority (South Africa):</strong> Information Regulator (South Africa), JD House, 27 Stiemens Street, Braamfontein, Johannesburg, 2001 &bull; <a href="mailto:POPIAComplaints@inforegulator.org.za">POPIAComplaints@inforegulator.org.za</a>. EEA/UK residents may also contact their local Data Protection Authority.</li>
+    </ul>
+
+    <div class="footer-links">
+      <span>&copy; 2026 TaxClean Technologies South Africa. All rights reserved.</span>
+      <div>
+        <a href="/">Home &amp; Converter</a> &nbsp;&bull;&nbsp;
+        <a href="/terms.html">Terms of Service &amp; EULA</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
